@@ -1,0 +1,65 @@
+
+//POUR LES ENTREES : std::cout et std::cin
+
+#include <iostream>
+
+// en C :
+printf("Hello %s\n", name);
+
+//en C++ :
+std::cout << "Hello " << name << std::endl;
+
+
+/********LES CHAINES DE CHARACTERES : std::string ***********/
+
+//en C :
+char *str;
+strcpy(str, "Bonjour");
+strcat(str, " monde");
+
+// En C++ :
+
+#include <string>
+std::string str = "Bonjour";
+str += " monde";  // Concaténation simple !
+
+
+/******ALLOUER DE LA MEMOIRE : new et delete ***********/
+
+// En C :
+int *arr = (int*)malloc(10 * sizeof(int));
+free(arr);
+
+// En C++ :
+int *arr = new int[10];
+delete[] arr;  // [] pour les tableaux !
+
+
+/******LES STRUCT vs LES CLASSES ***********/
+
+//En C :
+typedef struct {
+    int x;
+    int y;
+} Point;
+
+void point_init(Point *p, int x, int y) {
+    p->x = x;
+    p->y = y;
+}
+
+//En C++ :
+
+class Point {
+    private:
+        int x;
+        int y;
+    
+    public:
+        Point(int x, int y);  // Constructeur
+        void display(void);   // Fonction membre
+};
+
+private : accessible uniquement dans la classe (par défaut dans class)
+
+public : accessible de partout
