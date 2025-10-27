@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 13:04:15 by camerico          #+#    #+#             */
-/*   Updated: 2025/10/27 17:49:59 by camerico         ###   ########.fr       */
+/*   Updated: 2025/10/27 18:15:22 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,33 @@ void	Contact::setDarkestSecret(std::string darkest_secret)
 /****************************************************************
 *																*
 *						Les Getter 								*
-*	Fonction utilise pour modifier l'attribut, ne renvoie rien​	 *
+*	fonction publique qui permet de lire (et retourner) la 		*
+*			valeur d'un attribut privé sans rien modifier​		 *
 *																*
 ****************************************************************/
+
+std::string Contact::getFirstName(void) const
+{
+	return this->_first_name;
+}
+
+std::string	Contact::getLastName(void) const
+{
+	return this->_last_name;
+}
+
+std::string	Contact::getNickname(void) const
+{
+	return this->_nickname;
+}
+
+std::string Contact::getPhoneNumber(void) const
+{
+	return this->_phone_number;
+}
+
+std::string	Contact::getDarkestSecret(void) const
+{
+	return this->_darkest_secret;
+}
+

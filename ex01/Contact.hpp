@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 13:03:51 by camerico          #+#    #+#             */
-/*   Updated: 2025/10/27 17:38:32 by camerico         ###   ########.fr       */
+/*   Updated: 2025/10/27 18:19:37 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 class Contact
 {
 	private:
-	std::string	_first_name;
+	std::string	_first_name;			//Attributs
 	std::string	_last_name;
 	std::string	_nickname;
 	std::string	_phone_number;
@@ -34,6 +34,7 @@ class Contact
 
 	public:
 	Contact();		//constructeur
+	~Contact();		//destructeur
 
 	//Setter
 	void	setFirstName(std::string first_name);
