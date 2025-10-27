@@ -8,6 +8,7 @@ printf("Hello %s\n", name);
 
 //en C++ :
 std::cout << "Hello " << name << std::endl;
+std::cout.opertor<<("Hello ")
 
 
 /********LES CHAINES DE CHARACTERES : std::string ***********/
@@ -41,6 +42,8 @@ delete[] arr;  // [] pour les tableaux !
 typedef struct {
     int x;
     int y;
+
+    Point() : x(0), y(0) {};
 } Point;
 
 void point_init(Point *p, int x, int y) {
@@ -63,3 +66,74 @@ class Point {
 private : accessible uniquement dans la classe (par défaut dans class)
 
 public : accessible de partout
+
+
+
+class Student
+{
+    private:                    // Tout ce qui suit est privé
+        std::string _name;      // Convention : _ devant = privé
+        int         _age;
+        std::string _login;
+    
+    public:                     // Tout ce qui suit est public
+        // Ici on mettra nos fonctions accessibles de l'extérieur
+};
+
+
+// LE CONSTRUCTEUR
+
+fonction spéciale qui est appelée automatiquement quand tu crées un objet. Son rôle : initialiser les attributs
+porte le meme nom que la classe
+
+ex :
+
+public:
+        Student(void);          // Constructeur
+
+
+
+//Le Destructeur
+
+Le destructeur est appelé automatiquement quand l''objet est détruit (à la fin du programme, ou quand il sort de son scope).
+sert à nettoyer (libérer la mémoire, fermer des fichiers, etc.)
+
+ex :
+public:
+        Student(void);          // Constructeur
+        ~Student(void);         // Destructeur (avec ~)
+
+/*************Pour lire du texte depuis un terminal*********/
+
+#include <iostream>
+#include <string>
+
+std::cin >>  ==> // lit un mot (s'arrête à l'espace)
+std::getline() ==> // lit une ligne complète (avec espaces)
+
+ex :
+
+std::string command;
+
+// Méthode 1 : Lire un mot (s'arrête à l'espace)
+std::cin >> command;
+
+// Méthode 2 : Lire une ligne complète (avec espaces)
+std::getline(std::cin, command);
+
+
+/**********diff << et >>***********/
+
+<< envoie des données vers le flux de sortie
+
+>> lit depuis l'entrée'
+
+
+/******Affichage Formaté********/
+
+std::setw(10) ==> longueur de 10 char
+std::right ==> aligne a droite
+
+/********convertir char en int ********/
+
+std::stringstream
