@@ -137,3 +137,7 @@ std::right ==> aligne a droite
 /********convertir char en int ********/
 
 std::stringstream
+
+
+/*Les Setter */
+Un setter est une fonction publique qui permet de modifier un attribut privé de manière contrôlée.

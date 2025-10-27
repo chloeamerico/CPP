@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 13:03:51 by camerico          #+#    #+#             */
-/*   Updated: 2025/10/27 14:33:06 by camerico         ###   ########.fr       */
+/*   Updated: 2025/10/27 17:38:32 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ class Contact
 	public:
 	Contact();		//constructeur
 
+	//Setter
 	void	setFirstName(std::string first_name);
 	void	setLastName(std::string last_name);
 	void	setNickname(std::string nickname);
@@ -49,7 +50,7 @@ class Contact
 	std::string	getNickname(void) const;
 	std::string	getPhoneNumber(void) const;
 	std::string	getDarkestSecret(void) const;
-}
+};
 
 
 #endif
