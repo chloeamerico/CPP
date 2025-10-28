@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 13:03:33 by camerico          #+#    #+#             */
-/*   Updated: 2025/10/28 17:47:21 by camerico         ###   ########.fr       */
+/*   Updated: 2025/10/28 18:00:31 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,11 @@ int main(void)
 
 	while (true)
 	{
+		std::cout << "> ";
 		if (!std::getline(std::cin, cmd))
 		{
 			std::cout << "Bye!" << std::endl;
-			return;
+			break;
 		}
 		if (cmd == "ADD")
 			phonebook.addContact();

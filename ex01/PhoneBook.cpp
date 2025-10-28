@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 13:04:54 by camerico          #+#    #+#             */
-/*   Updated: 2025/10/28 17:33:35 by camerico         ###   ########.fr       */
+/*   Updated: 2025/10/28 18:10:58 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	PhoneBook::addContact()
 	
 	while(input.empty())
 	{
-		std::cout << "First Name :";
+		std::cout << "First Name : ";
 		std::getline(std::cin, input);
 		if (input.empty())
 			std::cout << "Le champs ne peut pas etre vide" << std::endl;
@@ -38,7 +38,7 @@ void	PhoneBook::addContact()
 
 	while(input.empty())
 	{
-		std::cout << "Last Name :";
+		std::cout << "Last Name : ";
 		std::getline(std::cin, input);
 		if (input.empty())
 			std::cout << "Le champs ne peut pas etre vide" << std::endl;
@@ -48,7 +48,7 @@ void	PhoneBook::addContact()
 
 	while(input.empty())
 	{
-		std::cout << "Nickname :";
+		std::cout << "Nickname : ";
 		std::getline(std::cin, input);
 		if (input.empty())
 			std::cout << "Le champs ne peut pas etre vide" << std::endl;
@@ -58,7 +58,7 @@ void	PhoneBook::addContact()
 
 	while(input.empty())
 	{
-		std::cout << "Phone Number :";
+		std::cout << "Phone Number : ";
 		std::getline(std::cin, input);
 		if (input.empty())
 			std::cout << "Le champs ne peut pas etre vide" << std::endl;
@@ -68,7 +68,7 @@ void	PhoneBook::addContact()
 
 	while(input.empty())
 	{
-		std::cout << "Darkest Secret :";
+		std::cout << "Darkest Secret : ";
 		std::getline(std::cin, input);
 		if (input.empty())
 			std::cout << "Le champs ne peut pas etre vide" << std::endl;
@@ -78,8 +78,7 @@ void	PhoneBook::addContact()
 
 	if (_nb_contacts < 8)
 		_nb_contacts++;
-	else 
-		_current_contact = (_current_contact + 1) % 8;
+	_current_contact = (_current_contact + 1) % 8;
 }
 
 
@@ -133,7 +132,7 @@ void PhoneBook::searchContact()
 	int index = -1;
 	if(!(ss >> index) || !(ss.eof()))
 	{
-		std::cout << "Invalid format" << std::endl;
+		std::cout << "Invalid format, you're back to the menu" << std::endl;
 		return;
 	}
 	
