@@ -80,6 +80,20 @@ class Student
         // Ici on mettra nos fonctions accessibles de l'extérieur
 };
 
+//lES INSTANCES
+
+pour la classe Point, 
+le main ressemblerai a :
+
+
+int main() {
+    Point   a;
+
+    return (0);
+}
+
+Point ==> est la classe 
+a ==> est l''instance
 
 // LE CONSTRUCTEUR
 
@@ -109,7 +123,7 @@ public:
 #include <string>
 
 std::cin >>  ==> // lit un mot (s'arrête à l'espace)
-std::getline() ==> // lit une ligne complète (avec espaces)
+std::getline(std::cin, input) ==> // lit une ligne complète (avec espaces)
 
 ex :
 
@@ -141,3 +155,20 @@ std::stringstream
 
 /*Les Setter */
 Un setter est une fonction publique qui permet de modifier un attribut privé de manière contrôlée.
+
+
+/**********empty()***********/
+
+empty() est une méthode de la classe std::string.
+
+Est-ce que cette chaîne de caractères est vide ? 
+
+    - si la chaine est vide , empty() renvoie true
+    - si la chaine contient au moins 1 char, empty() renvoie false
+
+ex :
+std::string texte1 = "";           // Chaîne vide
+std::string texte2 = "Bonjour";    // Chaîne avec du texte
+
+texte1.empty()  // Renvoie TRUE (la chaîne est vide)
+texte2.empty()  // Renvoie FALSE (la chaîne n'est pas vide)

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*   test.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 13:03:51 by camerico          #+#    #+#             */
-/*   Updated: 2025/10/27 18:19:37 by camerico         ###   ########.fr       */
+/*   Updated: 2025/10/28 17:49:27 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@
 
 
 #include <string>
+#include <iostream>		//pour pour std::cout, std::cin
+#include <iomanip>		//pour std::setw, std::right
+#include <sstream>		//pour std::stringstream (validation de nombre)
 
 class Contact
 {
