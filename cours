@@ -145,8 +145,13 @@ std::getline(std::cin, command);
 
 /******Affichage Formaté********/
 
-std::setw(10) ==> longueur de 10 char
 std::right ==> aligne a droite
+
+std::setw(10) ==> longueur de 10 char
+
+std::setfill();
+avec setw , on limite le nb de char. mais pour les vides, par defaut c'est un espace qui remplace .
+si on veut remplacer les expaces vides par autre chose , on utilise setfill('0') pour remplacer par 0 par ex
 
 /********convertir char en int ********/
 
@@ -172,3 +177,45 @@ std::string texte2 = "Bonjour";    // Chaîne avec du texte
 
 texte1.empty()  // Renvoie TRUE (la chaîne est vide)
 texte2.empty()  // Renvoie FALSE (la chaîne n'est pas vide)
+
+
+/**********variable static VS tariable normale***********/
+
+une variable static : Appartient à la classe entière (partagée par tous les objets)
+une variable normale : Appartient à chaque objet individuel
+
+les varibles statiques ne sont pas a initialiser avec le constructeur.
+elles exisent AVANT tout objet.
+
+Le constructeur, lui, s''exécute uniquement quand tu crées un objet
+
+
+//time
+
+time_t      ==> pour calculer le temps , 
+
+secondes écoulées depuis le 1er janvier 1970 à 00:00:00 UTC (ex 1 729 902 404)
+
+std::time(NULL) 
+La fonction std::time() récupère l''heure actuelle 
+
+std::tm
+tm* est un pointeur vers une structure tm, 
+qui contient les composants décomposés d'une date et heure.
+
+voici a quoi elle ressemble :
+
+struct tm {
+    int tm_sec;   // Secondes (0-59)
+    int tm_min;   // Minutes (0-59)
+    int tm_hour;  // Heures (0-23)
+    int tm_mday;  // Jour du mois (1-31)
+    int tm_mon;   // Mois (0-11) ⚠️ Attention : 0 = janvier !
+    int tm_year;  // Années depuis 1900 ⚠️ Attention : pour 2025, tm_year = 125
+    int tm_wday;  // Jour de la semaine (0-6, 0 = dimanche)
+    int tm_yday;  // Jour de l'année (0-365)
+    int tm_isdst; // Heure d'été ? (1 = oui, 0 = non, -1 = inconnu)
+};
+
+std::localtime(t_time *t)
+prend en parametre une variable t_time, et remplie la struct tm en convertissant le t 

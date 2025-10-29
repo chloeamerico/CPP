@@ -23,7 +23,7 @@ public:
 
 	typedef Account		t;
 
-	static int	getNbAccounts( void );
+	static int	getNbAccounts( void );				//une variable static est partagée par tous les objets 
 	static int	getTotalAmount( void );
 	static int	getNbDeposits( void );
 	static int	getNbWithdrawals( void );
@@ -40,6 +40,8 @@ public:
 
 private:
 
+	//Attributs statiques (partages par tous les comptes) :
+
 	static int	_nbAccounts;
 	static int	_totalAmount;
 	static int	_totalNbDeposits;
@@ -47,6 +49,7 @@ private:
 
 	static void	_displayTimestamp( void );
 
+	//Attributs d'instance (propres à chaque compte) :
 	int				_accountIndex;
 	int				_amount;
 	int				_nbDeposits;
