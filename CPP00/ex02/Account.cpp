@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 13:09:28 by camerico          #+#    #+#             */
-/*   Updated: 2025/11/03 18:01:35 by camerico         ###   ########.fr       */
+/*   Updated: 2025/11/03 18:13:57 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ Account::~Account(void)
 {
 	_displayTimestamp();
 	std::cout << "index:" << this->_accountIndex << ";"
-		<< "amout:" << this->_amount << ";"
+		<< "amount:" << this->_amount << ";"
 		<< "closed" << std::endl;
 }
 
@@ -115,7 +115,7 @@ void Account::displayAccountsInfos(void)
 	_displayTimestamp();
 	std::cout << "accounts:" << _nbAccounts << ";"
 		<< "total:" << _totalAmount << ";"
-		<< "deposit:" << _totalNbDeposits << ";"
+		<< "deposits:" << _totalNbDeposits << ";"
 		<< "withdrawals:" << _totalNbWithdrawals << std::endl;
 }
 
