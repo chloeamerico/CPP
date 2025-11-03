@@ -36,6 +36,23 @@ int *arr = new int[10];
 delete[] arr;  // [] pour les tableaux !
 
 
+//Allocation mémoire:
+    Pile (stack) : allocation automatique, variables locales détruites à la fin de la portée
+
+    Tas (heap) : allocation dynamique avec new, nécessite un delete manuel
+
+
+Stack pour l''allocation automatique (variables locales)
+
+Heap pour l''allocation dynamique (avec new et delete)
+
+
+//difference :
+
+ce qui est cree sur la stack est detruit automatiquement
+ce qui est cree sur la heap survit apres la fonction (allocation dynamique)
+
+
 /******LES STRUCT vs LES CLASSES ***********/
 
 //En C :
@@ -219,3 +236,24 @@ struct tm {
 
 std::localtime(t_time *t)
 prend en parametre une variable t_time, et remplie la struct tm en convertissant le t 
+
+
+// std::for_each
+
+ fonction qui parcourt tous les éléments d''un conteneur et applique une fonction à chaque élément.
+
+syntaxe : std::for_each(début, fin, fonction);
+
+    début : acc_begin (premier compte)
+
+    fin : acc_end (après le dernier compte)
+
+    fonction : std::mem_fun_ref( &Account::displayStatus )
+Ce que ça fait : Pour chaque compte entre acc_begin et acc_end, appelle la fonction displayStatus().
+
+//const
+
+ue fonction avec const ne modifie rien / ne modifie pas l''objet sur lequel il est appele.
+utilise un this->
+elle peut etre utilisee pour les getter par ex si elles ne sont pas static
+
