@@ -1,13 +1,43 @@
-[19920104_091532] index:0;amount:42;created
-[19920104_091532] index:1;amount:54;created
-[19920104_091532] index:2;amount:957;created
+
+*****************************************
+*			BLOC 1 : CRÉATION			*
+*****************************************
+
+// Ligne de création de compte (constructeur)
+Fonction appelée : Account::Account(int initial_deposit)
+
+[19920104_091532] index:0;amount:42;created			<-- Constructeur compte 0
+[19920104_091532] index:1;amount:54;created			<-- Constructeur compte 1
+[19920104_091532] index:2;amount:957;created		...
 [19920104_091532] index:3;amount:432;created
 [19920104_091532] index:4;amount:1234;created
 [19920104_091532] index:5;amount:0;created
 [19920104_091532] index:6;amount:754;created
 [19920104_091532] index:7;amount:16576;created
-[19920104_091532] accounts:8;total:20049;deposits:0;withdrawals:0
-[19920104_091532] index:0;amount:42;deposits:0;withdrawals:0
+
+
+*****************************************
+*			BLOC 2 : ÉTAT INITIAL		*
+*****************************************
+
+// Ligne d'informations globales (statique)
+    accounts : Nombre total de comptes
+    total : Montant total dans tous les comptes
+    deposits : Nombre total de dépôts effectués
+    withdrawals : Nombre total de retraits effectués
+//fonction Account::displayAccountsInfos(); 
+
+[19920104_091532] accounts:8;total:20049;deposits:0;withdrawals:0		<-- Account::displayAccountsInfos()
+
+
+// Ligne de statut individuel
+//fonction : Account::displayStatus() const
+    index : Le numéro du compte
+    amount : Le solde actuel du compte
+    deposits : Nombre de dépôts dans ce compte
+    withdrawals : Nombre de retraits dans ce compte
+
+[19920104_091532] index:0;amount:42;deposits:0;withdrawals:0		<-- ← displayStatus() compte 0
 [19920104_091532] index:1;amount:54;deposits:0;withdrawals:0
 [19920104_091532] index:2;amount:957;deposits:0;withdrawals:0
 [19920104_091532] index:3;amount:432;deposits:0;withdrawals:0
@@ -15,7 +45,20 @@
 [19920104_091532] index:5;amount:0;deposits:0;withdrawals:0
 [19920104_091532] index:6;amount:754;deposits:0;withdrawals:0
 [19920104_091532] index:7;amount:16576;deposits:0;withdrawals:0
-[19920104_091532] index:0;p_amount:42;deposit:5;amount:47;nb_deposits:1
+
+
+*****************************************
+*			BLOC 3 : DÉPÔTS				*
+*****************************************
+
+// Ligne de dépôt : Quand tu effectues un dépôt dans un compte
+    index : Le numéro du compte
+    p_amount : Le montant précédent (previous amount)
+    deposit : Le montant déposé
+    amount : Le nouveau montant après le dépôt
+    nb_deposits : Nombre de dépôts dans ce compte
+
+[19920104_091532] index:0;p_amount:42;deposit:5;amount:47;nb_deposits:1			<-- makeDeposit() compte 0
 [19920104_091532] index:1;p_amount:54;deposit:765;amount:819;nb_deposits:1
 [19920104_091532] index:2;p_amount:957;deposit:564;amount:1521;nb_deposits:1
 [19920104_091532] index:3;p_amount:432;deposit:2;amount:434;nb_deposits:1
@@ -23,8 +66,15 @@
 [19920104_091532] index:5;p_amount:0;deposit:23;amount:23;nb_deposits:1
 [19920104_091532] index:6;p_amount:754;deposit:9;amount:763;nb_deposits:1
 [19920104_091532] index:7;p_amount:16576;deposit:20;amount:16596;nb_deposits:1
-[19920104_091532] accounts:8;total:21524;deposits:8;withdrawals:0
-[19920104_091532] index:0;amount:47;deposits:1;withdrawals:0
+
+*****************************************
+*		BLOC 4 : ÉTAT APRÈS DÉPÔTS		*
+*****************************************
+
+[19920104_091532] accounts:8;total:21524;deposits:8;withdrawals:0		<-- displayAccountsInfos()
+
+
+[19920104_091532] index:0;amount:47;deposits:1;withdrawals:0		<--  displayStatus() compte 0
 [19920104_091532] index:1;amount:819;deposits:1;withdrawals:0
 [19920104_091532] index:2;amount:1521;deposits:1;withdrawals:0
 [19920104_091532] index:3;amount:434;deposits:1;withdrawals:0
@@ -32,16 +82,36 @@
 [19920104_091532] index:5;amount:23;deposits:1;withdrawals:0
 [19920104_091532] index:6;amount:763;deposits:1;withdrawals:0
 [19920104_091532] index:7;amount:16596;deposits:1;withdrawals:0
-[19920104_091532] index:0;p_amount:47;withdrawal:refused
-[19920104_091532] index:1;p_amount:819;withdrawal:34;amount:785;nb_withdrawals:1
+
+
+*****************************************
+*		BLOC 5 : RETRAITS				*
+*****************************************
+
+// Ligne de retrait (accepté ou refuse)
+// Account::makeWithdrawal(int withdrawal)
+    index : Le numéro du compte
+    p_amount : Le montant précédent
+    withdrawal : Le montant retiré
+    amount : Le nouveau montant après le retrait
+    nb_withdrawals : Nombre de retraits dans ce compte
+
+[19920104_091532] index:0;p_amount:47;withdrawal:refused		<-- makeWithdrawal() refusé compte 0
+[19920104_091532] index:1;p_amount:819;withdrawal:34;amount:785;nb_withdrawals:1		<-- makeWithdrawal() accepté compte 1
 [19920104_091532] index:2;p_amount:1521;withdrawal:657;amount:864;nb_withdrawals:1
 [19920104_091532] index:3;p_amount:434;withdrawal:4;amount:430;nb_withdrawals:1
 [19920104_091532] index:4;p_amount:1321;withdrawal:76;amount:1245;nb_withdrawals:1
 [19920104_091532] index:5;p_amount:23;withdrawal:refused
 [19920104_091532] index:6;p_amount:763;withdrawal:657;amount:106;nb_withdrawals:1
 [19920104_091532] index:7;p_amount:16596;withdrawal:7654;amount:8942;nb_withdrawals:1
-[19920104_091532] accounts:8;total:12442;deposits:8;withdrawals:6
-[19920104_091532] index:0;amount:47;deposits:1;withdrawals:0
+
+*****************************************
+*		BLOC 6 : ÉTAT APRÈS RETRAITS	*
+*****************************************
+
+[19920104_091532] accounts:8;total:12442;deposits:8;withdrawals:6		<-- displayAccountsInfos()
+
+[19920104_091532] index:0;amount:47;deposits:1;withdrawals:0		<-- displayStatus() compte 0
 [19920104_091532] index:1;amount:785;deposits:1;withdrawals:1
 [19920104_091532] index:2;amount:864;deposits:1;withdrawals:1
 [19920104_091532] index:3;amount:430;deposits:1;withdrawals:1
@@ -49,7 +119,14 @@
 [19920104_091532] index:5;amount:23;deposits:1;withdrawals:0
 [19920104_091532] index:6;amount:106;deposits:1;withdrawals:1
 [19920104_091532] index:7;amount:8942;deposits:1;withdrawals:1
-[19920104_091532] index:0;amount:47;closed
+
+*****************************************
+*			BLOC 7 : FERMETURE 			*
+*****************************************
+
+// Ligne de fermeture de compte (destructeur)
+
+[19920104_091532] index:0;amount:47;closed		<-- Destructeur compte 0
 [19920104_091532] index:1;amount:785;closed
 [19920104_091532] index:2;amount:864;closed
 [19920104_091532] index:3;amount:430;closed
