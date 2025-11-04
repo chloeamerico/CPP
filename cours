@@ -42,8 +42,7 @@ delete[] arr;  // [] pour les tableaux !
     Tas (heap) : allocation dynamique avec new, nécessite un delete manuel
 
 
-Stack pour l''allocation automatique (variables locales)
-
+Stack pour l''allocation automatique (variables locales) --> automatiquement detruite
 Heap pour l''allocation dynamique (avec new et delete)
 
 
@@ -122,7 +121,20 @@ ex :
 public:
         Student(void);          // Constructeur
 
+plusieurs facon d ''initialiser avec le constructeur, ex avec CPP01/ex00
 
+ex1 :
+Zombie::Zombie(std::string n) : name(n)  // ← Plus rapide
+{
+}
+
+OU
+
+ex2
+Zombie::Zombie(std::string n)  // ← Crée d'abord une valeur par défaut
+{
+    this->name = n;  // ← Puis l'assigne (copie)
+}
 
 //Le Destructeur
 
@@ -257,3 +269,27 @@ ue fonction avec const ne modifie rien / ne modifie pas l''objet sur lequel il e
 utilise un this->
 elle peut etre utilisee pour les getter par ex si elles ne sont pas static
 
+
+
+/******Pointeurs vs références ***********/
+
+//Pointeur 
+
+avec * 
+il stocke l'adresse d'une variable. Tu peux le passer partout, changer où il pointe
+
+ex : 
+Zombie* ptr = new Zombie("Bob");  // Pointe sur Bob
+ptr->announce();                  // Utilise ->
+delete ptr;
+
+// Une référence
+
+avec &
+
+c '' est un alias pour une variable. Elle pointe automatiquement sur la même chose, tu ne peux pas la changer
+
+ex :
+Zombie zombie("Charlie");
+Zombie& ref = zombie;    // ref est un alias de zombie
+ref.announce();          // Utilise . comme d'habitude

@@ -1,35 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   newZombie.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 19:17:45 by camerico          #+#    #+#             */
-/*   Updated: 2025/11/03 19:27:31 by camerico         ###   ########.fr       */
+/*   Created: 2025/11/03 19:32:33 by camerico          #+#    #+#             */
+/*   Updated: 2025/11/04 19:09:05 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_H
-#define ZOMBIE_H
+//Implementation de la fonction Zombie* newZombie(std::string name)
+//Cette fonction crée un zombie sur le HEAP avec new et le retourne
 
-#include <string>
+#include "Zombie.hpp"
+#include <iostream>
 
-class Zombie
+Zombie* newZombie(std::string name)
 {
-	
-	private :
-	
-	std::string	name;
-	
-	
-	public :
-
-	Zombie();	//Constructeur
-	~Zombie();	//Destructeur (doit afficher message de debug avec le nom du zombie)
-	
-	void announce( void );			// qui affiche <name> BraiiiiiiinnnzzzZ...
-	
-};
-
-#endif
+	Zombie	*zombie = new Zombie(name);			//<-- alloue sur la heap
+	return zombie;								//on retourne le pointeur
+}
