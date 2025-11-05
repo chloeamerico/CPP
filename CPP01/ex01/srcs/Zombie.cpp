@@ -1,31 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 19:37:29 by camerico          #+#    #+#             */
-/*   Updated: 2025/11/05 15:29:40 by camerico         ###   ########.fr       */
+/*   Created: 2025/11/05 15:38:41 by camerico          #+#    #+#             */
+/*   Updated: 2025/11/05 19:01:37 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+#include <string>
+#include <iostream>
 
-int main()
+
+//constructeur par defaut
+
+Zombie::Zombie () {}
+
+//destruteur
+
+Zombie::~Zombie()
 {
-	std::cout << "test avec randomchump :" << std::endl;
-	
-	randomChump("Lolo");	//cree sur la stack (se detruit automatiquement)
-	
-	std::cout << std::endl;
+	std::cout << "Zombie " << this->name << " has been destroyed" << std::endl;
+}
 
-	std::cout << "test avec newZombie :" << std::endl;
+//fonction announce
 
-	Zombie	*testheap = newZombie("chloe");		//cree sur la heap
-	testheap->announce();						//utilise un pointeur
+void	Zombie::announce()
+{
+	std::cout << this->name << " : BraiiiiiiinnnzzzZ..." << std::endl;
+}
 
-	delete testheap;			//destruction manuelle
-
-	return 0;
+void Zombie::setname(std::string n)
+{
+	this->name = n;
 }

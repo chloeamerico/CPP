@@ -293,3 +293,8 @@ ex :
 Zombie zombie("Charlie");
 Zombie& ref = zombie;    // ref est un alias de zombie
 ref.announce();          // Utilise . comme d'habitude
+
+
+
+C'est celui qui possède  et recoit le pointeur est responsable du delete (generalement le main)
+on utilise un constructeur avec parametre quand on cree 1 SEUL objet et qu'on peut specifier son nom directement;

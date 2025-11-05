@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 19:37:29 by camerico          #+#    #+#             */
-/*   Updated: 2025/11/05 15:29:40 by camerico         ###   ########.fr       */
+/*   Created: 2025/11/05 15:34:07 by camerico          #+#    #+#             */
+/*   Updated: 2025/11/05 19:01:32 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef ZOMBIE_H
+#define ZOMBIE_H
 
-int main()
+#include <string>
+#include <iostream>
+
+class	Zombie
 {
-	std::cout << "test avec randomchump :" << std::endl;
+	private :
+
+	std::string name;
+
 	
-	randomChump("Lolo");	//cree sur la stack (se detruit automatiquement)
+	public :
 	
-	std::cout << std::endl;
+	Zombie();
+	~Zombie();
 
-	std::cout << "test avec newZombie :" << std::endl;
+	void	announce(void);
+	void	setname(std::string n);
+};
 
-	Zombie	*testheap = newZombie("chloe");		//cree sur la heap
-	testheap->announce();						//utilise un pointeur
 
-	delete testheap;			//destruction manuelle
+Zombie* zombieHorde( int N, std::string name );
 
-	return 0;
-}
+#endif

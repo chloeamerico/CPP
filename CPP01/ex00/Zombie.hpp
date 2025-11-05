@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 19:17:45 by camerico          #+#    #+#             */
-/*   Updated: 2025/11/04 19:24:51 by camerico         ###   ########.fr       */
+/*   Updated: 2025/11/05 15:29:01 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ class Zombie
 	
 };
 
-Zombie* newZombie(std::string name);
-void randomChump(std::string name);
+Zombie	*newZombie(std::string name);
+void 	randomChump(std::string name);
 
 #endif

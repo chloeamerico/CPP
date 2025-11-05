@@ -5,27 +5,37 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 19:37:29 by camerico          #+#    #+#             */
-/*   Updated: 2025/11/05 15:29:40 by camerico         ###   ########.fr       */
+/*   Created: 2025/11/05 15:30:18 by camerico          #+#    #+#             */
+/*   Updated: 2025/11/05 18:54:21 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include <Zombie.hpp>
 
-int main()
+//pour creer une horde de 5 zombies avec le meme nom 
+//et en appelant announce
+int	main(void)
 {
-	std::cout << "test avec randomchump :" << std::endl;
+	int N = 5;
+
+	std::cout << "---on cree la horde---" << std::endl << std::endl;
 	
-	randomChump("Lolo");	//cree sur la stack (se detruit automatiquement)
+	Zombie *horde = zombieHorde(N, "chloe");
 	
-	std::cout << std::endl;
-
-	std::cout << "test avec newZombie :" << std::endl;
-
-	Zombie	*testheap = newZombie("chloe");		//cree sur la heap
-	testheap->announce();						//utilise un pointeur
-
-	delete testheap;			//destruction manuelle
+	if(!horde)
+		return 1;
+	
+	std::cout << "---les zombies s'annoncent---" << std::endl << std::endl;
+	
+	for(int i = 0; i < N; i++)
+	{
+		std::cout << "Zombie " << i << " : ";
+		horde[i].announce();
+	}
+	
+	std::cout << std::endl << "---on detruit les zombies---" << std::endl << std::endl;
+	
+	delete[] horde;		//on libere le tableau
 
 	return 0;
 }
