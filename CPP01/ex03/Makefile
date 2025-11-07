@@ -6,7 +6,10 @@ SRC_DIR = srcs
 OBJ_DIR = obj
 
 
-SRCS = $(SRC_DIR)/main.cpp 
+SRCS = $(SRC_DIR)/main.cpp \
+	$(SRC_DIR)/HumanA.cpp \
+	$(SRC_DIR)/HumanB.cpp \
+	$(SRC_DIR)/Weapon.cpp \
 
 OBJS = $(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 

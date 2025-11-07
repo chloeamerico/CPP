@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.hpp                                         :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/07 18:05:42 by camerico          #+#    #+#             */
-/*   Updated: 2025/11/07 19:18:03 by camerico         ###   ########.fr       */
+/*   Created: 2025/11/07 19:20:20 by camerico          #+#    #+#             */
+/*   Updated: 2025/11/07 19:40:02 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANB_HPP
-#define HUMANB_HPP
+#include <iostream>
+#include "HumanB.hpp"
 
-#include <string>
-#include "Weapon.hpp"
+HumanB::HumanB(std::string name) : _name(name) {}
 
-class HumanB
+void HumanB::setWeapon(Weapon& weapon)
 {
-	private :
+	this->_weapon = &weapon;
+}
 
-	std::string _name;
-	Weapon* 	_weapon;	//pointeur plus adapte car pas forcement d'arme au debut
-	
-	public:
-	HumanB(std::string name);
-
-	void setWeapon(Weapon& weapon);		//pour donner une arme a HumanB apres sa creation
-	void attack(void) const;
-};
-
-#endif
+void HumanB::attack(void) const
+{
+	if (this->_weapon == NULL)
+	{
+		std::cout << this->_name << " has no weapon" << std::endl;
+		return;
+	}
+	std::cout << this->_name << " attacks with their " 
+		<< this->_weapon->getType() << std::endl;
+}

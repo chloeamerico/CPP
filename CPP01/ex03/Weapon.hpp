@@ -6,12 +6,12 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 16:41:04 by camerico          #+#    #+#             */
-/*   Updated: 2025/11/07 17:58:58 by camerico         ###   ########.fr       */
+/*   Updated: 2025/11/07 19:17:46 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef WEAPON_HPP
-#define WAEPON_HPP
+#define WEAPON_HPP
 
 #include <string>
 #include <iostream>
