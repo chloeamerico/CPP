@@ -1,4 +1,4 @@
-NAME = Zombiehorde
+NAME = Brain
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -I.
@@ -6,10 +6,7 @@ SRC_DIR = srcs
 OBJ_DIR = obj
 
 
-SRCS = $(SRC_DIR)/main.cpp \
-       $(SRC_DIR)/Zombie.cpp \
-       $(SRC_DIR)/newZombie.cpp \
-       $(SRC_DIR)/randomChump.cpp
+SRCS = $(SRC_DIR)/main.cpp 
 
 OBJS = $(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 

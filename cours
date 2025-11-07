@@ -295,3 +295,30 @@ Zombie& ref = zombie;    // ref est un alias de zombie
 ref.announce();          // Utilise . comme d'habitude
 
 
+// exemples :
+
+AVEC REFERENCE :
+
+void incrementer(int &ref) {
+    ref += 1;           // Modifie directement la variable d'origine
+}
+
+int main() {
+    int a = 10;
+    incrementer(a);
+    std::cout << a;     // Affiche 11
+}
+
+AVEC POINTEUR :
+
+void incrementer(int *ptr) {
+    if (ptr != nullptr) {
+        *ptr += 1;      // Modifie via le pointeur
+    }
+}
+
+int main() {
+    int a = 10;
+    incrementer(&a);
+    std::cout << a;     // Affiche 11
+}
