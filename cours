@@ -322,3 +322,212 @@ int main() {
     incrementer(&a);
     std::cout << a;     // Affiche 11
 }
+
+
+/********GESTION DES FICHIERS ***********/
+
+bibliothèque fstream
+
+fonctions :
+
+    std::ifstream : pour la lecture des fichiers.
+    std::ofstream : pour l’écriture dans les fichiers.
+    std::fstream : pour la lecture et l’écriture combinées.
+
+pour ouvrir un fichier : .open()
+
+Vérifier si le fichier est correctement ouvert à l’aide de .is_open(). 
+Fermer le fichier avec .close().
+
+
+lecture du fichier :
+get() --> lit un seul caractère depuis le fichier
+getline() --> lit une ligne complète depuis le fichier
+read() --> lit des données binaires de manière séquentielle depuis un fichier
+
+Écriture dans les fichiers :
+put() --> écrit un seul caractère dans le fichier
+write() --> écrit des données binaires de manière séquentielle dans un fichier
+
+Modes d'ouverture :
+ios::in pour la lecture
+ios::out pour l''écriture
+ios::app pour ajouter du contenu à la fin du fichier
+ios::binary pour les opérations binaires,
+ios::trunc pour supprimer le contenu existant.
+
+Gestion des erreurs
+fail() retourne vrai si une opération de lecture ou d'écriture a échoué
+eof() vérifie si la fin du fichier a été atteinte
+bad() détecte les erreurs graves d'entrée/sortie.
+clear() réinitialise les indicateurs d'erreur du flux
+
+
+ex pour ecrire dans un fichier :
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ofstream fichier("exemple.txt"); // Crée et ouvre le fichier
+
+    if (fichier.is_open()) {
+        fichier << "Bonjour, ceci est un fichier texte.\n";
+        fichier << "L'écriture dans les fichiers est simple en C++.\n";
+        fichier.close(); // Ferme le fichier
+        cout << "Écriture réussie dans exemple.txt" << endl;
+    } else {
+        cout << "Erreur : Impossible d'ouvrir le fichier." << endl;
+    }
+
+    return 0;
+}
+
+ex Lecture depuis un fichier (std::ifstream):
+
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main() {
+    ifstream fichier("exemple.txt"); // Ouvre le fichier en lecture
+    string ligne;
+
+    if (fichier.is_open()) {
+        while (getline(fichier, ligne)) { // Lit une ligne à la fois
+            cout << ligne << endl;
+        }
+        fichier.close(); // Ferme le fichier
+    } else {
+        cout << "Erreur : Impossible de lire le fichier." << endl;
+    }
+
+    return 0;
+}
+
+
+ex : Lecture et écriture combinées (std::fstream) : 
+
+
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main() {
+    fstream fichier("exemple.txt", ios::in | ios::out); // Ouvre en lecture et écriture
+
+    if (fichier.is_open()) {
+        string ligne;
+
+        while (getline(fichier, ligne)) { // Lit chaque ligne
+            cout << "Ligne lue : " << ligne << endl;
+        }
+
+        fichier.seekp(0, ios::end); // Place le curseur en fin de fichier
+        fichier << "Ajout d'une nouvelle ligne.\n"; // Écrit une nouvelle ligne
+
+        fichier.close(); // Ferme le fichier
+    } else {
+        cout << "Erreur : Impossible d'ouvrir le fichier." << endl;
+    }
+
+    return 0;
+}
+
+
+Vérifications et gestion des erreurs : .is_open() et .fail()
+
+ex :
+ if (fichier.fail()) {
+        cerr << "Erreur : Le fichier n'existe pas ou ne peut être ouvert." << endl;
+ }
+
+
+
+ // lire une chaine de str
+
+equivalent a while (str[i]) {}
+
+en CPP :
+
+std::string str = "Hello";
+for (size_t i = 0; i < str.length(); i++)
+{
+    // Traiter str[i]
+}
+
+/********Methode .empty() ***********/
+
+pour verifier si une lign est vide
+
+equivalent a if(!str) en C
+.empty ()
+
+bool qui renvoie 1 si la string est vide.
+
+ex :
+std::string str = "";
+
+if (str.empty())
+    return 1;
+
+
+// Size_t
+
+c'est toujours positif ou 0
+il a une tres grande taille compare a un int
+
+aussi, si on fait size_t x = -1;
+ca va renvoyer le plus grand nombre posisble en fonction des bits du system
+donc ca va renvoyer un tres grand nombre
+
+
+/********Methode .find() ***********/
+
+size_t position = string.find(substring, pos);
+
+    substring : la chaîne (ou caractère) à rechercher
+    pos : position de départ de la recherche (optionnel, par défaut = 0)
+
+Retourne :
+
+    - L''index (position) du premier caractère de la première occurrence trouvée
+    - std::string::npos si la sous-chaîne n''est pas trouvée
+
+/********Methode .substr() ***********/
+
+string nouveauString = string.substr(pos, len);
+
+    pos : Position de départ (index du premier caractère à copier)
+    len : Longueur du substring (nombre de caractères à extraire)
+
+Retourne :
+
+    - Une nouvelle chaîne contenant la sous-chaîne extraite
+    - Ne modifie PAS la chaîne originale
+
+ex :
+std::string str = "Hello World";
+std::string sub = str.substr(6, 5);
+
+std::cout << sub;  // Affiche: "World" 
+
+/********Methode .length() et .size() ***********/
+
+.length() et .size() sont IDENTIQUES, ils retournent tous deux la longueur d'une chaine
+
+contenu dans std::string
+
+
+/********Methode .c_str ***********/
+
+convertit un std::string (chaîne C++) en C-string (chaîne de style C).
+
+ex : std::string str = "Hello";
+const char* cstr = str.c_str();  // Conversion
+
+utile pour utiliser des fonctions en C++98
+

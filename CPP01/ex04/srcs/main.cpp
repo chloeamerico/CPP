@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 14:20:03 by camerico          #+#    #+#             */
-/*   Updated: 2025/11/13 16:04:31 by camerico         ###   ########.fr       */
+/*   Updated: 2025/11/13 16:12:29 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ std::string str_replace(std::string oldstr, std::string s1, std::string s2)
 }
 
 
-int main (int argc, char **argv)
+int main(int argc, char **argv)
 {	
 	if (argc != 4)
 	{
@@ -59,6 +59,12 @@ int main (int argc, char **argv)
 	std::string filename = argv[1];
 	std::string s1 = argv[2];
 	std::string s2 = argv[3];
+	
+	if (s1.empty())
+	{
+		std::cout << "s1 empty is not valid" << std::endl;
+		return 1;
+	}
 
 	std::ifstream infile(filename.c_str());		//ouvre le fichier en mode lecture
 	if(!infile.is_open())
@@ -93,6 +99,5 @@ int main (int argc, char **argv)
 	infile.close();		//ferme les 2 fichiers 
 	outfile.close();
 		
-
 	return 0;
 }
