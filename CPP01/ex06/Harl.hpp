@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/05 15:38:41 by camerico          #+#    #+#             */
-/*   Updated: 2025/11/17 14:25:02 by camerico         ###   ########.fr       */
+/*   Created: 2025/11/17 13:26:20 by camerico          #+#    #+#             */
+/*   Updated: 2025/11/17 16:09:11 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef HARL_HPP
+#define HARL_HPP
+
 #include <string>
 #include <iostream>
 
+class Harl {
 
-//constructeur par defaut
+	private :
 
-Zombie::Zombie () {}
+	void debug( void );
+	void info( void );
+	void warning( void );
+	void error( void );
+	
+	public :
+	Harl();
+	~Harl();
 
-//destruteur
+	void complain( std::string level );
+};
 
-Zombie::~Zombie()
-{
-	std::cout << "Zombie " << this->name << " has been destroyed" << std::endl;
-}
 
-//fonction announce
-void	Zombie::announce()
-{
-	std::cout << this->name << " : BraiiiiiiinnnzzzZ..." << std::endl;
-}
-
-void Zombie::setname(std::string n)
-{
-	this->name = n;
-}
+#endif

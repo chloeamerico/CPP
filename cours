@@ -531,3 +531,51 @@ const char* cstr = str.c_str();  // Conversion
 
 utile pour utiliser des fonctions en C++98
 
+
+/********pointeur sur fonction membre ***********/
+
+exemple de symtaxe pour creer un pointeur sur une fonction membre :
+
+
+type_retour (NomClasse::*nom_pointeur)(parametres) = &NomClasse::fonction;
+
+
+void (Harl::*ptr)() = &Harl::debug;
+Cela signifie : "ptr est un pointeur vers une fonction membre de la classe Harl qui ne retourne rien (void) et ne prend aucun paramètre".
+
+
+Pour appeler cette fonction via le pointeur, tu utilises :
+
+(objet.*ptr)();  // Avec un objet direct
+(pointeur->*ptr)();  // Avec un pointeur d'objet
+
+Harl harl;
+void (Harl::*ptr)() = &Harl::debug;
+
+// Appel avec un objet
+(harl.*ptr)();  // Appelle harl.debug()
+
+
+/********instruction SWITCH ***********/
+
+syntaxe :
+
+switch(expression) {
+    case valeur1:
+        // code à exécuter
+        break;
+    case valeur2:
+        // code à exécuter
+        break;
+    default:
+        // code à exécuter si aucun cas ne correspond
+}
+
+Imagine que tu as une boîte avec plusieurs portes numérotées. 
+Le switch regarde la valeur que tu lui donnes, trouve la porte qui correspond, 
+ouvre cette porte et continue à avancer jusqu'à ce qu'il rencontre un break.
+
+// LE fall-through
+
+Si tu n'écris pas de break, le code continue d'exécuter les case suivants automatiquement. 
+C'est exactement ce que tu veux pour l'ex06 !
