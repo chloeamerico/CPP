@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 19:22:01 by camerico          #+#    #+#             */
-/*   Updated: 2025/11/07 13:04:01 by camerico         ###   ########.fr       */
+/*   Updated: 2025/11/25 16:52:45 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 //Constructeur
 
-Zombie::Zombi(std::string n)
+Zombie::Zombie(std::string n)
 {
 	this->name = n;
 }

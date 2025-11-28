@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/07 16:41:04 by camerico          #+#    #+#             */
-/*   Updated: 2025/11/25 16:45:22 by camerico         ###   ########.fr       */
+/*   Created: 2025/11/27 14:01:17 by camerico          #+#    #+#             */
+/*   Updated: 2025/11/27 17:24:28 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPON_HPP
-#define WEAPON_HPP
-
-#include <string>
 #include <iostream>
+#include "Fixed.hpp"
 
-class Weapon
-{
+
+int main( void ) {
+
+	Fixed a;
+	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+
+	std::cout << a << std::endl;
+	std::cout << ++a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a++ << std::endl;
+	std::cout << a << std::endl;
+
+	std::cout << b << std::endl;
 	
-	private :
+	std::cout << Fixed::max( a, b ) << std::endl;
 
-	std::string	_type;
-
-	public :
-	
-	Weapon(std::string type);		//constructeur
-	
-	const std::string getType(void) const;		//retourne une reference constante sur type
-	void setType(std::string type); 		//attribue à type la nouvelle valeur passée en paramètre
-};
-
-
-#endif
+	return 0;
+}

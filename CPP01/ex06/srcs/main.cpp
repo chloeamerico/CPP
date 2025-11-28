@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 15:59:22 by camerico          #+#    #+#             */
-/*   Updated: 2025/11/17 17:54:54 by camerico         ###   ########.fr       */
+/*   Updated: 2025/11/25 16:51:10 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,9 @@ int main(int argc, char **argv)
 			harl.complain("WARNING");
 		case 3:
 			harl.complain("ERROR");
+			break;
 		default:
-			std::cout << "Unknown level " << argv[1] << std::endl;
+			std::cout << "[ Probably complaining about insignificant problems] " << std::endl;
 	}
 	
 	return 0;
