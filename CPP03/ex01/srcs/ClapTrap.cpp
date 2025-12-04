@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 14:39:56 by camerico          #+#    #+#             */
-/*   Updated: 2025/12/04 18:17:19 by camerico         ###   ########.fr       */
+/*   Updated: 2025/12/04 18:17:31 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,12 @@ ClapTrap::ClapTrap(const ClapTrap& other)
 {
 	std::cout << std::endl << "ClapTrap copy constructor called" << std::endl << std::endl;
 
+
 	_name = other._name;
 	_hitPoint = other._hitPoint;
 	_energyPoint = other._energyPoint;
 	_attackDamage = other._attackDamage;
-	
+
 	// OU JUSTE
 	// *this = other;
 }

@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 14:39:30 by camerico          #+#    #+#             */
-/*   Updated: 2025/12/03 17:30:02 by camerico         ###   ########.fr       */
+/*   Updated: 2025/12/04 17:35:45 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int ClapTrap::get_lifepoints(void) const
 
 int main(void)
 {
-    ClapTrap CC("CP01");        //on cree un object de la classe ClapTrack
+    ClapTrap CC("CT01");        //on cree un object de la classe ClapTrack
 
     std::cout << "CC's energy points before attack : " << CC.get_energy() << std::endl;
     CC.attack("ennemy");        //on test l'attaque sur "ennemy"

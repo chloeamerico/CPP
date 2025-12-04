@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 14:28:17 by camerico          #+#    #+#             */
-/*   Updated: 2025/11/28 20:49:04 by camerico         ###   ########.fr       */
+/*   Updated: 2025/12/01 12:36:39 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -202,7 +202,7 @@ Fixed& Fixed::operator--(void)
 //a--
 Fixed Fixed::operator--(int)
 {
-	Fixed tmp;
+	Fixed tmp(*this);
 	this->_value--;
 	return tmp;
 }
