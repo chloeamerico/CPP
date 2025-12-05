@@ -6,19 +6,19 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 12:55:14 by camerico          #+#    #+#             */
-/*   Updated: 2025/12/04 19:11:10 by camerico         ###   ########.fr       */
+/*   Updated: 2025/12/05 12:43:11 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "../includes/ScavTrap.hpp"
 
 //Forme canonique
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name) 
 {
 	_hitPoint = 100;
-	_energyPoint = 50;
-	_attackDamage = 20;
+	_energyPoint = 100;
+	_attackDamage = 30;
 	std::cout << "ScavTrap " << _name << " created!" << std::endl;
 }
 
@@ -38,7 +38,7 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "Scavtrap " << _name << " destroyed!" << std::endl;
+	std::cout << "Scavtrav " << _name << " destroyed!" << std::endl;
 }
 
 //nv message pour attack
