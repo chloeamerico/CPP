@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 18:57:14 by camerico          #+#    #+#             */
-/*   Updated: 2025/12/05 17:08:41 by camerico         ###   ########.fr       */
+/*   Updated: 2025/12/05 17:08:24 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
 	_hitPoint = 100;
 	_energyPoint = 100;
-	_attackDamage = 30;
-	std::cout << "FragTrap " << _name << " created!" << std::endl;
+	_attackDamage = 300;
+	std::cout << "FragTrap " << name << " created!" << std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap& other) : ClapTrap(other) {
@@ -38,10 +38,10 @@ FragTrap& FragTrap::operator=(const FragTrap& other)
 
 FragTrap::~FragTrap()
 {
-	std::cout << "FragTrap " << _name << " destroyed!" << std::endl;
+	std::cout << "FragTrap destroyed!" << std::endl;
 }
 
-// //nv message pour attack
+//nv message pour attack
 
 // void FragTrap::attack(const std::string& target)
 // {
