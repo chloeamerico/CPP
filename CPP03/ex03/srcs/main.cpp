@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 14:39:30 by camerico          #+#    #+#             */
-/*   Updated: 2025/12/05 17:14:06 by camerico         ###   ########.fr       */
+/*   Updated: 2025/12/05 18:29:43 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,21 @@ int main(void)
 {
     DiamondTrap DT("DT01");         //on cree un object de la classe DiamondTrap
 
+    std::cout << "DT's energy points before attack : " << DT.get_energy() << std::endl;
     DT.attack("ennemy");
+    std::cout << "DT's energy points after attack : " << DT.get_energy() << std::endl;
+
+    std::cout << std::endl;
+    DT.highFivesGuys();
+
+    std::cout << std::endl;
+    DT.guardGate();
     
-    // std::cout << std::endl;
     DT.whoAmI();
+
+    DiamondTrap DT2(DT);
+    DT2.whoAmI();
+
     
     // std::cout << std::endl << "FT's energy points before attack : " << FT.get_energy() << std::endl;
     // FT.attack("ennemy");        //on test l'attaque sur "ennemy"

@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 15:28:39 by camerico          #+#    #+#             */
-/*   Updated: 2025/12/05 12:39:45 by camerico         ###   ########.fr       */
+/*   Updated: 2025/12/05 20:07:18 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class ClapTrap {
 	ClapTrap(std::string name);
 	ClapTrap(const ClapTrap& other);
 	ClapTrap& operator=(const ClapTrap& other);
-	~ClapTrap ();
+	~ClapTrap();
 	
 	void attack(const std::string& target);		//utilise 1 pt d'energie
 	void takeDamage(unsigned int amount);		//fait perdre des points de vie
