@@ -6,13 +6,21 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 12:55:14 by camerico          #+#    #+#             */
-/*   Updated: 2025/12/05 12:43:11 by camerico         ###   ########.fr       */
+/*   Updated: 2025/12/09 12:02:44 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ScavTrap.hpp"
 
 //Forme canonique
+
+ScavTrap::ScavTrap() : ClapTrap() 
+{
+	_hitPoint = 100;
+	_energyPoint = 100;
+	_attackDamage = 30;
+	std::cout << "ScavTrap " << _name << " created!" << std::endl;
+}
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name) 
 {

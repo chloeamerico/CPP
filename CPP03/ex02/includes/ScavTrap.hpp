@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 12:40:54 by camerico          #+#    #+#             */
-/*   Updated: 2025/12/04 18:38:34 by camerico         ###   ########.fr       */
+/*   Updated: 2025/12/09 12:02:29 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ class ScavTrap : public ClapTrap
 {
 	public :
 	
+	ScavTrap();
 	ScavTrap(std::string name);
 	ScavTrap(const ScavTrap &other);
 	ScavTrap& operator=(const ScavTrap &other);

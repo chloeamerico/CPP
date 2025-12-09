@@ -6,13 +6,21 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 18:57:14 by camerico          #+#    #+#             */
-/*   Updated: 2025/12/05 17:08:41 by camerico         ###   ########.fr       */
+/*   Updated: 2025/12/09 12:03:27 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/FragTrap.hpp"
 
 //Forme canonique
+
+FragTrap::FragTrap() : ClapTrap() 
+{
+	_hitPoint = 100;
+	_energyPoint = 100;
+	_attackDamage = 30;
+	std::cout << "FragTrap " << _name << " created!" << std::endl;
+}
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name) 
 {

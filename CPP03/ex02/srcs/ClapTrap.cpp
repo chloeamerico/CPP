@@ -6,12 +6,16 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 14:39:56 by camerico          #+#    #+#             */
-/*   Updated: 2025/12/05 12:42:25 by camerico         ###   ########.fr       */
+/*   Updated: 2025/12/08 18:31:40 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ClapTrap.hpp"
 
+ClapTrap::ClapTrap() : _name("Default"), _hitPoint(10), _energyPoint(10), _attackDamage(0)
+{
+	std::cout << "ClapTrap " << _name << " created!" << std::endl;
+}
 
 //constructeur par default
 ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoint(10), _energyPoint(10), _attackDamage(0)

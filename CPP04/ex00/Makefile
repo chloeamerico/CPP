@@ -8,10 +8,11 @@ INC_DIR = includes
 
 
 SRCS = $(SRC_DIR)/main.cpp \
-       $(SRC_DIR)/ClapTrap.cpp \
-	   $(SRC_DIR)/ScavTrap.cpp \
-	   $(SRC_DIR)/FragTrap.cpp \
-	   $(SRC_DIR)/DiamondTrap.cpp \
+       $(SRC_DIR)/Animal.cpp \
+	   $(SRC_DIR)/Dog.cpp \
+	   $(SRC_DIR)/Cat.cpp \
+	   $(SRC_DIR)/WrongAnimal.cpp \
+	   $(SRC_DIR)/WrongCat.cpp \
 
 OBJS = $(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 

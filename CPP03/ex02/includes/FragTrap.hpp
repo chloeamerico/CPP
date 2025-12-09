@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 18:56:03 by camerico          #+#    #+#             */
-/*   Updated: 2025/12/05 15:17:17 by camerico         ###   ########.fr       */
+/*   Updated: 2025/12/09 12:03:39 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 class FragTrap : public ClapTrap
 {
 	public :
-	
+
+	FragTrap();
 	FragTrap(std::string name);
 	FragTrap(const FragTrap &other);
 	FragTrap& operator=(const FragTrap &other);

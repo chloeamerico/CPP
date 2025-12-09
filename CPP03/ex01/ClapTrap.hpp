@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 15:28:39 by camerico          #+#    #+#             */
-/*   Updated: 2025/12/04 18:39:20 by camerico         ###   ########.fr       */
+/*   Updated: 2025/12/08 18:28:48 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ class ClapTrap {
 
 
 	public :
+	ClapTrap();
 	ClapTrap(std::string name);
 	ClapTrap(const ClapTrap& other);
 	ClapTrap& operator=(const ClapTrap& other);
