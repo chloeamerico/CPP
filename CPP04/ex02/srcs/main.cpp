@@ -6,13 +6,13 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 17:35:01 by camerico          #+#    #+#             */
-/*   Updated: 2025/12/12 17:30:00 by camerico         ###   ########.fr       */
+/*   Updated: 2025/12/12 17:37:30 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Dog.hpp"
 #include "../includes/Cat.hpp"
-#include "../includes/Animal.hpp"
+#include "../includes/AAnimal.hpp"
 #include "../includes/WrongAnimal.hpp"
 #include "../includes/WrongCat.hpp"
 
@@ -20,8 +20,8 @@
 //main du sujet
 // int main()
 // {
-// 	const Animal* j = new Dog();
-// 	const Animal* i = new Cat();
+// 	const aAnimal* j = new Dog();
+// 	const aAnimal* i = new Cat();
 
 // 	delete j;//should not create a leak
 // 	delete i;
@@ -32,17 +32,16 @@
 //mon main
 int main()
 {
-	Animal* animal[5];
+	AAnimal* animal[4];
 	
 	animal[0] = new Dog();
 	animal[1] = new Dog();
 	animal[2] = new Cat();
 	animal[3] = new Cat();
-	animal[4] = new Animal();
 
 	std::cout << std::endl;
 
-	for(int i = 0; i < 5; i++)
+	for(int i = 0; i < 4; i++)
 	{
 		std::cout << animal[i]->getType() << " : ";
 		animal[i]->makeSound();
@@ -53,7 +52,7 @@ int main()
 	
 	std::cout << std::endl;
 
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < 4; i++)
 		delete animal[i];
 }
 
@@ -64,10 +63,10 @@ int main()
 
 // int main()
 // {
-// 	const Animal* meta = new Animal();
-// 	const Animal* j = new Dog();
-// 	const Animal* i = new Cat();
-// 	const WrongAnimal* k = new WrongCat();
+// 	const aAnimal* meta = new aAnimal();
+// 	const aAnimal* j = new Dog();
+// 	const aAnimal* i = new Cat();
+// 	const WrongaAnimal* k = new WrongCat();
 	
 // 	std::cout << std::endl;
 	

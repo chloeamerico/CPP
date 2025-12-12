@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   AAnimal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 19:52:19 by camerico          #+#    #+#             */
-/*   Updated: 2025/12/12 17:28:07 by camerico         ###   ########.fr       */
+/*   Updated: 2025/12/12 17:34:28 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#ifndef AAANIMAL_HPP
+#define AAANIMAL_HPP
 
 #include <string>
 #include <iostream>
@@ -21,18 +21,18 @@
 #define COLOR_GREY "\033[38;5;246m"
 #define COLOR_RESET "\033[0m"
 
-class Animal {
+class AAnimal {
 	
 	protected :
 		std::string _type;
 
 	public :
-		Animal();
-		Animal(const Animal& copy);
-		Animal& operator=(const Animal& copy);
-		virtual ~Animal();
+		AAnimal();
+		AAnimal(const AAnimal& copy);
+		AAnimal& operator=(const AAnimal& copy);
+		virtual ~AAnimal();
 
-		virtual void makeSound() const;
+		virtual void makeSound() const = 0;
 		std::string getType() const;
 };
 

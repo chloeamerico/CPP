@@ -1,39 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/05 19:52:19 by camerico          #+#    #+#             */
-/*   Updated: 2025/12/12 17:28:07 by camerico         ###   ########.fr       */
+/*   Created: 2025/12/05 20:22:00 by camerico          #+#    #+#             */
+/*   Updated: 2025/12/12 17:35:16 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#ifndef DOG_HPP
+#define DOG_HPP
 
-#include <string>
-#include <iostream>
+#include "AAnimal.hpp"
+#include "Brain.hpp"
 
-#define COLOR_BLUE "\033[34m"
-#define COLOR_RED "\033[31m"
-#define COLOR_GREY "\033[38;5;246m"
-#define COLOR_RESET "\033[0m"
-
-class Animal {
-	
-	protected :
-		std::string _type;
+class Dog : public AAnimal
+{
+	private :
+		Brain* _brain;
 
 	public :
-		Animal();
-		Animal(const Animal& copy);
-		Animal& operator=(const Animal& copy);
-		virtual ~Animal();
+		Dog();
+		Dog(const Dog &copy);
+		Dog& operator=(const Dog &copy);
+		~Dog();
 
-		virtual void makeSound() const;
-		std::string getType() const;
+		void makeSound() const;
 };
 
 #endif
