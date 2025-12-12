@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 17:20:40 by camerico          #+#    #+#             */
-/*   Updated: 2025/12/11 14:21:14 by camerico         ###   ########.fr       */
+/*   Updated: 2025/12/12 19:36:40 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,13 @@ Cat::~Cat() {
 	delete _brain;
 }
 
+//public methods
 
 void Cat::makeSound() const {
 	std::cout <<  COLOR_BLUE << "Miaouuu!" << COLOR_RESET << std::endl;
 }
 
+Brain *Cat::getBrain() const
+{
+	return (this->_brain);
+}

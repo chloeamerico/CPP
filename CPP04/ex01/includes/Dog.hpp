@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 20:22:00 by camerico          #+#    #+#             */
-/*   Updated: 2025/12/10 17:46:57 by camerico         ###   ########.fr       */
+/*   Updated: 2025/12/12 19:37:11 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ class Dog : public Animal
 		~Dog();
 
 		void makeSound() const;
+		Brain* getBrain() const;
 };
 
 #endif

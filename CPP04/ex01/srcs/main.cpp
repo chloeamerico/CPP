@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 17:35:01 by camerico          #+#    #+#             */
-/*   Updated: 2025/12/12 17:30:00 by camerico         ###   ########.fr       */
+/*   Updated: 2025/12/12 19:41:55 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,11 @@
 // 	return 0;
 // }
 
-//mon main
+
+
+
+
+// mon main
 int main()
 {
 	Animal* animal[5];
@@ -60,33 +64,20 @@ int main()
 
 
 
-
-
+// //main pour set les ideas
 // int main()
 // {
-// 	const Animal* meta = new Animal();
-// 	const Animal* j = new Dog();
-// 	const Animal* i = new Cat();
-// 	const WrongAnimal* k = new WrongCat();
-	
+// 	Cat cat1;
+// 	Cat cat2;
+
 // 	std::cout << std::endl;
-	
-// 	std::cout << j->getType() << std::endl;
-// 	std::cout << i->getType() << std::endl;
-// 	std::cout << k->getType() << std::endl;
+
+// 	cat1.getBrain()->setIdeas("idea1");
+// 	cat1.getBrain()->printIdeas();
 
 // 	std::cout << std::endl;
 	
-// 	meta->makeSound();
-// 	i->makeSound(); //will output the cat sound!
-// 	j->makeSound();
-// 	k->makeSound();
-
-// 	std::cout << std::endl;
-	
-// 	delete (i);
-// 	delete (j);
-// 	delete (meta);
-// 	delete (k);
-// 	return 0;
+// 	cat2 = cat1;
+// 	cat2.getBrain()->printIdeas();
 // }
+

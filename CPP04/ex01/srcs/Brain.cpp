@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 14:35:16 by camerico          #+#    #+#             */
-/*   Updated: 2025/12/11 18:35:12 by camerico         ###   ########.fr       */
+/*   Updated: 2025/12/12 19:38:01 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,17 @@ Brain& Brain::operator=(const Brain& copy)
 Brain::~Brain()
 {
 	std::cout << COLOR_GREY << "Brain destructor called" << COLOR_RESET << std::endl;
+}
+
+//public methods
+
+void Brain::setIdeas(const std::string idea)
+{
+	for (int i = 0; i < 100; i++)
+		this->_ideas[i] = idea;
+}
+void Brain::printIdeas() const
+{
+	for (int i = 0; i < 100; i++)
+		std::cout << this->_ideas[i] << std::endl;
 }
