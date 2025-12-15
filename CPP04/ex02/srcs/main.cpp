@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 17:35:01 by camerico          #+#    #+#             */
-/*   Updated: 2025/12/12 17:37:30 by camerico         ###   ########.fr       */
+/*   Updated: 2025/12/15 14:19:41 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 //main du sujet
 // int main()
 // {
-// 	const aAnimal* j = new Dog();
-// 	const aAnimal* i = new Cat();
+// 	const AAnimal* j = new Dog();
+// 	const AAnimal* i = new Cat();
 
 // 	delete j;//should not create a leak
 // 	delete i;
@@ -29,7 +29,11 @@
 // 	return 0;
 // }
 
-//mon main
+
+
+
+
+// mon main
 int main()
 {
 	AAnimal* animal[4];
@@ -38,6 +42,7 @@ int main()
 	animal[1] = new Dog();
 	animal[2] = new Cat();
 	animal[3] = new Cat();
+	// animal[3] = new AAnimal();
 
 	std::cout << std::endl;
 
@@ -59,33 +64,20 @@ int main()
 
 
 
-
-
+// //main pour set les ideas
 // int main()
 // {
-// 	const aAnimal* meta = new aAnimal();
-// 	const aAnimal* j = new Dog();
-// 	const aAnimal* i = new Cat();
-// 	const WrongaAnimal* k = new WrongCat();
-	
+// 	Cat cat1;
+// 	Cat cat2;
+
 // 	std::cout << std::endl;
-	
-// 	std::cout << j->getType() << std::endl;
-// 	std::cout << i->getType() << std::endl;
-// 	std::cout << k->getType() << std::endl;
+
+// 	cat1.getBrain()->setIdeas("idea1");
+// 	cat1.getBrain()->printIdeas();
 
 // 	std::cout << std::endl;
 	
-// 	meta->makeSound();
-// 	i->makeSound(); //will output the cat sound!
-// 	j->makeSound();
-// 	k->makeSound();
-
-// 	std::cout << std::endl;
-	
-// 	delete (i);
-// 	delete (j);
-// 	delete (meta);
-// 	delete (k);
-// 	return 0;
+// 	cat2 = cat1;
+// 	cat2.getBrain()->printIdeas();
 // }
+

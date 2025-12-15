@@ -35,9 +35,9 @@ AAnimal::~AAnimal() {
 
 //fct membres
 
-void AAnimal::makeSound() const {
-	std::cout << "This Aanimal doesn't make sound" << std::endl;
-}
+// void AAnimal::makeSound() const {
+// 	std::cout << "This Aanimal doesn't make sound" << std::endl;
+// }
 
 std::string AAnimal::getType() const {
 	

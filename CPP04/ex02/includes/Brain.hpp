@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 17:03:44 by camerico          #+#    #+#             */
-/*   Updated: 2025/12/11 18:37:03 by camerico         ###   ########.fr       */
+/*   Updated: 2025/12/12 19:37:32 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,9 @@ class Brain {
 		Brain(const Brain& copy);
 		Brain& operator=(const Brain& copy);
 		~Brain();
-
+		
+		void setIdeas(const std::string idea);
+		void printIdeas() const;
 };
 
 #endif

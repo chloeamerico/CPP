@@ -6,12 +6,12 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 19:52:19 by camerico          #+#    #+#             */
-/*   Updated: 2025/12/12 17:34:28 by camerico         ###   ########.fr       */
+/*   Updated: 2025/12/15 14:16:13 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AAANIMAL_HPP
-#define AAANIMAL_HPP
+#ifndef AANIMAL_HPP
+#define AANIMAL_HPP
 
 #include <string>
 #include <iostream>

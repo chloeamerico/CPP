@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:53:35 by camerico          #+#    #+#             */
-/*   Updated: 2025/12/12 17:36:10 by camerico         ###   ########.fr       */
+/*   Updated: 2025/12/15 14:19:00 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,3 +49,7 @@ void Dog::makeSound() const {
 	std::cout << COLOR_RED << "Wouafff!" << COLOR_RESET << std::endl;
 }
 
+Brain *Dog::getBrain() const
+{
+	return (this->_brain);
+}

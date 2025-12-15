@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/05 20:18:50 by camerico          #+#    #+#             */
-/*   Updated: 2025/12/15 14:20:34 by camerico         ###   ########.fr       */
+/*   Created: 2025/12/15 19:56:52 by camerico          #+#    #+#             */
+/*   Updated: 2025/12/15 20:43:59 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-#define CAT_HPP
+#ifndef ICE_HPP
+#define ICE_HPP
 
-#include "AAnimal.hpp"
-#include "Brain.hpp"
+#include "AMateria.hpp"
 
-class Cat : public AAnimal
+class Ice : public AMateria 
 {
-	private :
-		Brain* _brain;
-	
 	public :
-		Cat();
-		Cat(const Cat &copy);
-		Cat& operator=(const Cat &copy);
-		~Cat();
+		Ice();
+		Ice(const Ice& copy);
+		Ice& operator=(const Ice& copy);
+		~Ice();
 
-		void makeSound() const;
-		Brain* getBrain() const;
-};
+	//fonctions membres heritees de AMateria (a redefinir)
+	virtual AMateria* clone() const;
+	virtual void use(ICharacter& target);
+	
+}
+
 
 #endif
