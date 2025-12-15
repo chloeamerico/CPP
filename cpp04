@@ -1,3 +1,19 @@
+
+
+    ✅ AMateria (fait)
+
+    ✅ Ice et Cure (presque fait)
+
+    ➡️ ICharacter (interface à créer)
+
+    ➡️ Character (implémente ICharacter)
+
+    ➡️ IMateriaSource (interface)
+
+    ➡️ MateriaSource (implémente IMateriaSource)
+
+    ➡️ main.cpp pour tester
+
 Les classes à implémenter
 
 1. AMateria (classe abstraite de base)

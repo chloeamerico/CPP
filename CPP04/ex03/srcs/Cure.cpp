@@ -1,42 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.cpp                                            :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/15 19:59:40 by camerico          #+#    #+#             */
-/*   Updated: 2025/12/15 21:00:33 by camerico         ###   ########.fr       */
+/*   Created: 2025/12/15 21:01:17 by camerico          #+#    #+#             */
+/*   Updated: 2025/12/15 21:02:31 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Ice.hpp"
+
+#include "Cure.hpp"
 #include "ICharacter.hpp"
 
 //Forme Canonique
 
-Ice::Ice() : AMateria("ice") {}
+Cure::Cure() : AMateria("cure") {}
 
-Ice::Ice(const Ice& copy) : AMateria(copy) {}
+Cure::Cure(const Cure& copy) : AMateria(copy) {}
 
-Ice& Ice::operator=(const Ice& copy)
+Cure& Cure::operator=(const Cure& copy)
 {
 	if (this != &copy)
 		AMateria::operator=(copy);
 	return *this;
 }
 
-Ice::~Ice() {}
+Cure::~Cure() {}
 
 //fonctions membres heritees de la classe AMateria
 
 
-AMateria* Ice::clone() const
+AMateria* Cure::clone() const
 {
-	return new Ice(*this);		//c'est un Ice cast en AMateria car c'est le type de retour de la fonction
+	return new Cure(*this);		//c'est un Cure cast en AMateria car c'est le type de retour de la fonction
 }
 
-void Ice::use(ICharacter& target)
+void Cure::use(ICharacter& target)
 {
-	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
+	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 }
