@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 17:25:14 by camerico          #+#    #+#             */
-/*   Updated: 2025/12/16 18:42:28 by camerico         ###   ########.fr       */
+/*   Updated: 2025/12/16 19:35:44 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void Character::equip(AMateria* m)
 {
 	if (!m)
 		return;
-	for (int i = 0; i < 4 i++)
+	for (int i = 0; i < 4; i++)
 	{
 		if (_inventory[i] == NULL)
 		{
