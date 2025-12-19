@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 19:07:59 by camerico          #+#    #+#             */
-/*   Updated: 2025/12/16 19:36:30 by camerico         ###   ########.fr       */
+/*   Updated: 2025/12/17 12:58:53 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ void MateriaSource::learnMateria(AMateria* m)
 		if(_materias[i] == NULL)
 		{
 			_materias[i] = m->clone();
+			delete m;
 			return;
 		}
 	}
