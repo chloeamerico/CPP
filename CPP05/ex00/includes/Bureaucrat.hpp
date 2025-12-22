@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 14:40:41 by camerico          #+#    #+#             */
-/*   Updated: 2025/12/19 19:38:13 by camerico         ###   ########.fr       */
+/*   Updated: 2025/12/22 16:16:24 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 
 #include <string>
 #include <iostream>
-#include <except>
+#include <stdexcept>
 
 class Bureaucrat
 {
 	private :
 	
-		std::string _name const;
+		const std::string _name;
 		int _grade;					//1 est le plus grand, 150 le plus bas
 
 	public :
@@ -33,15 +33,11 @@ class Bureaucrat
 		Bureaucrat(const Bureaucrat& copy);
 		Bureaucrat& operator=(const Bureaucrat& copy);
 		~Bureaucrat();
-
-		//overload opertaor 
-
-		std::ostream& operator<<(std::ostream& out, const Bureaucrat& bureaucrat)
 		
 		//public methods
 
-		std::string getName();
-		int getGrade();
+		const std::string &getName() const;
+		int getGrade() const;
 		void incrementGrade();
 		void decrementGrade();
 
@@ -51,11 +47,17 @@ class Bureaucrat
 		{
 			public:
 				virtual const char* what() const throw() ; 
-		}
+		};
 		
 		class GradeTooLowException : public std::exception
 		{
 			public:
 				virtual const char* what() const throw() ; 
-		}
-}
+		};
+};
+
+//overload opertaor 
+
+std::ostream& operator<<(std::ostream& out, const Bureaucrat& bureaucrat);
+
+#endif
