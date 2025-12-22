@@ -6,12 +6,12 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 18:48:59 by camerico          #+#    #+#             */
-/*   Updated: 2025/12/22 19:39:15 by camerico         ###   ########.fr       */
+/*   Updated: 2025/12/22 21:10:23 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./../includes/Bureaucrat.hpp"
-
+#include "./../includes/Form.hpp"
 
 /****************************
 *    form canonique			*
@@ -27,16 +27,13 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 		throw GradeTooLowException();
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& copy)
-{
-	*this = copy;
-}
+Bureaucrat::Bureaucrat(const Bureaucrat& copy) : _name(copy._name), _grade(copy._grade) {}
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& copy)
 {
 	if(this != &copy)
 	{
-		// _name = copy._name;		//impossible car _name est const
+		// _name = copy._name;		ne peut pas reassigner _name car il est const
 		_grade = copy._grade;
 	}
 	return *this;
@@ -80,6 +77,19 @@ void Bureaucrat::decrementGrade()
 	if (_grade >= 150)
 		throw GradeTooLowException();
 	_grade++;
+}
+
+void Bureaucrat::signForm(Form &form)
+{
+	try
+	{
+		form.beSigned(*this);
+		std::cout << _name << " signed " << form.getName() << std::endl;	//si aucune exception n'est lancee, tout s'est bien passe
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << _name << " couldn't sign " << form.getName() << " because is grade is too low." << std::endl;
+	}
 }
 
 

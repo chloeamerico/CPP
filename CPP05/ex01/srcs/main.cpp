@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 15:29:25 by camerico          #+#    #+#             */
-/*   Updated: 2025/12/22 19:56:45 by camerico         ###   ########.fr       */
+/*   Updated: 2025/12/22 17:58:14 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,34 +46,18 @@ int main()
 
 	try
 	{
-		Bureaucrat b3("henry", 1);
+		Bureaucrat b2("henry", 1);
 		
-		std::cout << "Bureaucrat " << b3.getName() << " has grade : " << b3.getGrade() << std::endl;
+		std::cout << "Bureaucrat " << b2.getName() << " has grade : " << b2.getGrade() << std::endl;
 		
-		std::cout << b3.getName() << "'s grade increment..." << std::endl;
-		b3.incrementGrade();
-		std::cout << "Bureaucrat " << b3.getName() << " has grade : " << b3.getGrade() << std::endl;
-		
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-
-	std::cout << "--------------" << std::endl;
-
-	try
-	{
-		Bureaucrat b4("paul", 1);
-		Bureaucrat b5("Emma", 3);
-
-		std::cout << b4 << std::endl;
-		b5 = b4;
-		std::cout << b5 << std::endl;
+		std::cout << b2.getName() << "'s grade increment..." << std::endl;
+		b2.incrementGrade();
+		std::cout << "Bureaucrat " << b2.getName() << " has grade : " << b2.getGrade() << std::endl;
 		
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
+	
 }
