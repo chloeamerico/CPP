@@ -1,41 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 18:20:23 by camerico          #+#    #+#             */
-/*   Updated: 2025/12/22 21:02:44 by camerico         ###   ########.fr       */
+/*   Updated: 2025/12/23 13:52:37 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-#define FORM_HPP
+#ifndef AFORM_HPP
+#define AFORM_HPP
 
 #include <string>
 #include <stdexcept>
 #include <iostream>
-// #include <stdbool>
 #include "Bureaucrat.hpp"
 
-class Form
+class AForm
 {
 	private :
 		const std::string _name;
 		bool _is_signed;			//est ce que le doc est signe ou pas, non au constructeur (true = 1, false = 0)
 		const int _required_grade_to_sign;
 		const int _required_grade_to_execute;
+		std::string _target;
 
 	public :
 		
 		//canonique form
 
-		Form();
-		Form(std::string name, const int required_grade_to_sign, const int required_grade_to_execute);
-		Form(const Form& copy);
-		Form& operator=(const Form& copy);
-		~Form();
+		AForm();
+		AForm(std::string name, std::string target, const int required_grade_to_sign, const int required_grade_to_execute);
+		AForm(const AForm& copy);
+		AForm& operator=(const AForm& copy);
+		virtual ~AForm();
 
 		//public methods
 		
@@ -43,7 +43,10 @@ class Form
 		bool getSignedstatus() const;
 		int get_required_grade_to_sign() const;
 		int get_required_grade_to_execute() const;
+		const std::string &getTarget() const;					//nouveau ex02
 		bool beSigned(const Bureaucrat &bureaucrat);	//change le status de is_signed
+		void execute(Bureaucrat const & executor) const;		//nouveau ex02, pour check les grade et signatures
+		virtual void childExecute() const = 0; 
 
 		//exceptions 
 
@@ -58,10 +61,17 @@ class Form
 			public:
 				virtual const char* what() const throw() ; 
 		};
+		
+		class FormNotSignedException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw() ;
+		};
+
 };
 
 //overload operator 
 
-std::ostream& operator<<(std::ostream& out, const Form& form);
+std::ostream& operator<<(std::ostream& out, const AForm& Aform);
 
 #endif

@@ -6,12 +6,12 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 18:48:59 by camerico          #+#    #+#             */
-/*   Updated: 2025/12/22 21:10:23 by camerico         ###   ########.fr       */
+/*   Updated: 2025/12/23 18:16:48 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./../includes/Bureaucrat.hpp"
-#include "./../includes/Form.hpp"
+#include "./../includes/AForm.hpp"
 
 /****************************
 *    form canonique			*
@@ -79,7 +79,7 @@ void Bureaucrat::decrementGrade()
 	_grade++;
 }
 
-void Bureaucrat::signForm(Form &form)
+void Bureaucrat::signForm(AForm &form)
 {
 	try
 	{
@@ -92,6 +92,19 @@ void Bureaucrat::signForm(Form &form)
 	}
 }
 
+void Bureaucrat::executeForm(AForm const & form) const
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << _name << " execute " << form.getName() << std::endl;	//si aucune exception n'est lancee, tout s'est bien passe
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << _name << "can't execute form : " << form.getName() << " because " << e.what() << std::endl;
+	}
+	
+}
 
 /****************************
 *		 exceptions			*

@@ -8,8 +8,11 @@ INC_DIR = includes
 
 
 SRCS = $(SRC_DIR)/Bureaucrat.cpp \
-	   $(SRC_DIR)/Form.cpp \
+	   $(SRC_DIR)/AForm.cpp \
 	   $(SRC_DIR)/main.cpp \
+	   $(SRC_DIR)/PresidentialPardonForm.cpp \
+	   $(SRC_DIR)/RobotomyRequestForm.cpp \
+	   $(SRC_DIR)/ShrubberyCreationForm.cpp \
 
 OBJS = $(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 
