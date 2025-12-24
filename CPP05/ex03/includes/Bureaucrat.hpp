@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chloeamerico <chloeamerico@student.42.f    +#+  +:+       +#+        */
+/*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 14:40:41 by camerico          #+#    #+#             */
-/*   Updated: 2025/12/24 17:52:38 by chloeameric      ###   ########.fr       */
+/*   Updated: 2025/12/23 16:38:47 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,12 @@
 #include <iostream>
 #include <stdexcept>
 
+class AForm;
+
 class Bureaucrat
 {
 	private :
-
+	
 		const std::string _name;
 		int _grade;					//1 est le plus grand, 150 le plus bas
 
@@ -40,6 +42,8 @@ class Bureaucrat
 		int getGrade() const;
 		void incrementGrade();
 		void decrementGrade();
+		void signForm(AForm &form);
+		void executeForm(AForm const & form) const;
 
 		//exceptions
 
