@@ -1,4 +1,4 @@
-NAME = Form
+NAME = Intern
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -I.
@@ -10,6 +10,7 @@ INC_DIR = includes
 SRCS = $(SRC_DIR)/Bureaucrat.cpp \
 	   $(SRC_DIR)/AForm.cpp \
 	   $(SRC_DIR)/main.cpp \
+	   $(SRC_DIR)/Intern.cpp \
 	   $(SRC_DIR)/PresidentialPardonForm.cpp \
 	   $(SRC_DIR)/RobotomyRequestForm.cpp \
 	   $(SRC_DIR)/ShrubberyCreationForm.cpp \

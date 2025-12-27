@@ -61,5 +61,4 @@ AForm* Intern::makeForm(const std::string form_name, const std::string target)
 			std::cerr << "Problem detected : form name " << form_name << "does not exist" << std::endl;
 			return NULL;
 	}
-
 }

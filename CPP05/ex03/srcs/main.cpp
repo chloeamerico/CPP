@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 15:29:25 by camerico          #+#    #+#             */
-/*   Updated: 2025/12/23 18:46:39 by camerico         ###   ########.fr       */
+/*   Updated: 2025/12/27 16:19:40 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,42 @@
 #include "./../includes/ShrubberyCreationForm.hpp"
 #include "./../includes/RobotomyRequestForm.hpp"
 #include "./../includes/PresidentialPardonForm.hpp"
+#include "./../includes/Intern.hpp"
+
+
+// choisir entre shrubbery creation , robotomy request ou presidential pardon
+
 
 int main()
 {
+	// try
+	// {
+	// 	// Bureaucrat b1("Bob", 24);
+	// 	Intern		intern;
+	// 	AForm 		*rrf;
+		
+	// 	rrf = intern.makeForm("robotomy request", "Bob");
+	// }
+	// catch(const std::exception& e)
+	// {
+	// 	std::cerr << e.what() << std::endl;
+	// }
+	
+
 	try
 	{
-		Bureaucrat b1("Bob", 24);
-		Bureaucrat b2("Lolo", 4);
-		PresidentialPardonForm form_p("Laurent");
-
-		b1.signForm(form_p);
-		b2.executeForm(form_p);
+		Intern		intern;
+		AForm 		*rrf;		//on cree un pointeur qui peut pointer vers n'importe quelle classe derivee de AForm
+		
+		rrf = intern.makeForm("robotomy request", "Bob");
+		delete rrf;
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
 	
-
+	
 	// std::cout << "--------------" << std::endl;
 
 	// try
