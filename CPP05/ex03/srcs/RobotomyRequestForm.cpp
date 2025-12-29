@@ -16,7 +16,7 @@
 *    form canonique			*
 ****************************/
 
-RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", "default", 25, 5) {}
+RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", "default", 72, 45) {}
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("RobotomyRequestForm", target, 72, 45) {}
 

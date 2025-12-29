@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 15:29:25 by camerico          #+#    #+#             */
-/*   Updated: 2025/12/23 18:46:39 by camerico         ###   ########.fr       */
+/*   Updated: 2025/12/27 16:34:45 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,21 +33,21 @@ int main()
 	}
 	
 
-	// std::cout << "--------------" << std::endl;
+	std::cout << "--------------" << std::endl;
 
-	// try
-	// {
-	// 	Bureaucrat b2("jean", 4);
-	// 	Form form2("form2", 5, 3);
+	try
+	{
+		Bureaucrat b1("jean", 140);
+		Bureaucrat b2("Emma", 137);
+		ShrubberyCreationForm form_s("Laurent");
 
-	// 	b2.signForm(form2);
-	
-
-	// }
-	// catch(const std::exception& e)
-	// {
-	// 	std::cerr << e.what() << std::endl;
-	// }
+		b1.signForm(form_s);
+		b2.executeForm(form_s);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
 	
 	// std::cout << "--------------" << std::endl;
 

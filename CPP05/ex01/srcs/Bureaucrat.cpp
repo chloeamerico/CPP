@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 18:48:59 by camerico          #+#    #+#             */
-/*   Updated: 2025/12/22 21:10:23 by camerico         ###   ########.fr       */
+/*   Updated: 2025/12/29 11:42:11 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void Bureaucrat::signForm(Form &form)
 	}
 	catch (const std::exception& e)
 	{
-		std::cout << _name << " couldn't sign " << form.getName() << " because is grade is too low." << std::endl;
+		std::cout << _name << " couldn't sign " << form.getName() << " because his grade is too low." << std::endl;
 	}
 }
 

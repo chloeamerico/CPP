@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 15:29:25 by camerico          #+#    #+#             */
-/*   Updated: 2025/12/27 16:19:40 by camerico         ###   ########.fr       */
+/*   Updated: 2025/12/29 12:07:43 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,61 +23,28 @@
 
 int main()
 {
-	// try
-	// {
-	// 	// Bureaucrat b1("Bob", 24);
-	// 	Intern		intern;
-	// 	AForm 		*rrf;
-		
-	// 	rrf = intern.makeForm("robotomy request", "Bob");
-	// }
-	// catch(const std::exception& e)
-	// {
-	// 	std::cerr << e.what() << std::endl;
-	// }
-	
-
 	try
 	{
 		Intern		intern;
 		AForm 		*rrf;		//on cree un pointeur qui peut pointer vers n'importe quelle classe derivee de AForm
+		Bureaucrat	bob("bob", 1);
 		
 		rrf = intern.makeForm("robotomy request", "Bob");
-		delete rrf;
+		
+		if (rrf)
+		{
+			std::cout << *rrf << std::endl;
+			bob.signForm(*rrf);
+			bob.executeForm(*rrf);
+			delete rrf;
+		}
+		else
+			std::cerr << "Fail to create robotomy request form" << std::endl;
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	
-	
-	// std::cout << "--------------" << std::endl;
 
-	// try
-	// {
-	// 	Bureaucrat b2("jean", 4);
-	// 	Form form2("form2", 5, 3);
 
-	// 	b2.signForm(form2);
-	
-
-	// }
-	// catch(const std::exception& e)
-	// {
-	// 	std::cerr << e.what() << std::endl;
-	// }
-	
-	// std::cout << "--------------" << std::endl;
-
-	// try
-	// {
-	// 	Bureaucrat b2("henry", 1);
-	// 	Form form3("form3", 150, 0);
-		
-	// }
-	// catch(const std::exception& e)
-	// {
-	// 	std::cerr << e.what() << std::endl;
-	// }
-	
 }

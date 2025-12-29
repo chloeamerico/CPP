@@ -1,4 +1,14 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Intern.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/27 18:02:59 by camerico          #+#    #+#             */
+/*   Updated: 2025/12/29 12:03:19 by camerico         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "./../includes/AForm.hpp"
 #include "./../includes/Intern.hpp"
@@ -32,7 +42,7 @@ Intern::~Intern() {}
 *   	 public methods		*
 ****************************/
 
-int form_to_int(std::string str)
+static int form_to_int(std::string str)
 {
 	if (str == "shrubbery creation")
 		return 0;
@@ -59,6 +69,6 @@ AForm* Intern::makeForm(const std::string form_name, const std::string target)
 			return new PresidentialPardonForm(target);
 		default:
 			std::cerr << "Problem detected : form name " << form_name << "does not exist" << std::endl;
-			return NULL;
+			return 0;
 	}
 }

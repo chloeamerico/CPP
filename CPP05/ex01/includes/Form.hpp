@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 18:20:23 by camerico          #+#    #+#             */
-/*   Updated: 2025/12/22 21:02:44 by camerico         ###   ########.fr       */
+/*   Updated: 2025/12/29 11:40:59 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ class Form
 		bool getSignedstatus() const;
 		int get_required_grade_to_sign() const;
 		int get_required_grade_to_execute() const;
-		bool beSigned(const Bureaucrat &bureaucrat);	//change le status de is_signed
+		void beSigned(const Bureaucrat &bureaucrat);	//change le status de is_signed
 
 		//exceptions 
 

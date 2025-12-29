@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/23 15:22:17 by camerico          #+#    #+#             */
-/*   Updated: 2025/12/23 18:37:00 by camerico         ###   ########.fr       */
+/*   Updated: 2025/12/27 16:36:03 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,16 @@ void ShrubberyCreationForm::childExecute() const
 	
 	std::ofstream file(name_file.c_str());		//C++98 pas ne prend pas en compte std::ofstream + std::string
 
-	file << "	               ,@@@@@@@,					";
-	file << "       ,,,.   ,@@@@@@/@@,  .oo8888o.			";
-	file << "    ,&%%&%&&%,@@@@@/@@@@@@,8888&88/8o			";
-	file << "   ,%&%%&&%&&%,@@@&@@@/@@@88&88888/88'			";
-	file << "   %&&%&%&/%&&%@@&@@/ /@@@88888&88888'			";
-	file << "   %&&%/ %&%%&&@@& V /@@' `88&8 `/88'			";
-	file << "   `&%& ` /%&'    |.|        \\'|8'			";
-	file << "       |o|        | |         | |				";
-	file << "       |.|        | |         | |				";
-	file << "    \\/ ._\\/_/__/  ,\\_/__\\/.  \\_//__/_		";
+	file << "	               ,@@@@@@@,					" << std::endl;
+	file << "       ,,,.   ,@@@@@@/@@,  .oo8888o.			" << std::endl;
+	file << "    ,&%%&%&&%,@@@@@/@@@@@@,8888&88/8o			" << std::endl;
+	file << "   ,%&%%&&%&&%,@@@&@@@/@@@88&88888/88'			" << std::endl;
+	file << "   %&&%&%&/%&&%@@&@@/ /@@@88888&88888'			" << std::endl;
+	file << "   %&&%/ %&%%&&@@& V /@@' `88&8 `/88'			" << std::endl;
+	file << "   `&%& ` /%&'    |.|        \\'|8'			" << std::endl;
+	file << "       |o|        | |         | |				" << std::endl;
+	file << "       |.|        | |         | |				" << std::endl;
+	file << "    \\/ ._\\/_/__/  ,\\_/__\\/.  \\_//__/_		" << std::endl;
 
 	std::cout << "File : " << name_file << " created !" << std::endl;
 }
