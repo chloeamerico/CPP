@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/27 18:02:36 by camerico          #+#    #+#             */
-/*   Updated: 2025/12/30 17:32:36 by camerico         ###   ########.fr       */
+/*   Updated: 2025/12/30 18:15:14 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@
 #include <iomanip>   // pour std::fixed et std::setprecision
 #include <iostream>  // pour std::cout
 #include <cstdlib>   // pour atoi, atol, atof
+#include <cmath>	// pour isinf et isnan
+#include <cfloat>	//pour DBL_MAX
+
 
 class ScalarConverter {
 

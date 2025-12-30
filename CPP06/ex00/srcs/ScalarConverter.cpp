@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/27 18:17:16 by camerico          #+#    #+#             */
-/*   Updated: 2025/12/30 17:32:42 by camerico         ###   ########.fr       */
+/*   Updated: 2025/12/30 18:29:02 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,15 @@ void ScalarConverter::convert(std::string s)
 
 		float f = static_cast<float>(d);
 
+		if (std::isinf(f) || fabs(f) > 1e308)
+		{
+			std::cout << "char: impossible" << std::endl
+				<< "int: impossible" << std::endl
+				<< "float: " << (f > 0 ? "+inff" : "-inff") << std::endl
+				<< "double: " << (d > 0 ? "+inf" : "-inf") << std::endl;
+			return;
+	    }
+
 		if (f < 0 || f > 127 || f != static_cast<int>(f))
 			std::cout << "char: impossible" << std::endl;
 		else if (!isprint(static_cast<char>(f)))
@@ -120,6 +129,15 @@ void ScalarConverter::convert(std::string s)
 	{
 		double d = std::atof(s.c_str());
 
+		if (std::isinf(d) || d > DBL_MAX || d < -DBL_MAX)
+		{
+			std::cout << "char: impossible" << std::endl
+				<< "int: impossible" << std::endl
+				<< "float: " << (d > 0 ? "+inff" : "-inff") << std::endl
+				<< "double: " << (d > 0 ? "+inf" : "-inf") << std::endl;
+			return;
+		}
+		
 		if (d < 0 || d > 127 || d != static_cast<int>(d))
 			std::cout << "char: impossible" << std::endl;
 		else if (!isprint(static_cast<char>(d)))
