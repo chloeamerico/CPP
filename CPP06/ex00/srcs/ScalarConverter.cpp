@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/27 18:17:16 by camerico          #+#    #+#             */
-/*   Updated: 2025/12/29 19:42:59 by camerico         ###   ########.fr       */
+/*   Updated: 2025/12/30 17:32:42 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,184 +64,13 @@ std::cout << std::fixed << std::setprecision(1) << num;  // Affiche "42.0"
 
 */
 
-//float = se termine par f et contient un .
-static bool is_float(std::string &s)
-{
-	size_t i = 0;
-	
-	//string vide
-	if (s.empty())
-		return false;	
-	
-	//pour le signe
-	if(s[i] == '+' || s[i] == '-')
-	{
-		//avec le signe , longueur min de 5 char (pour +0.0f)
-		if (s.length() < 5)	
-			return false;
-	
-		i++;
-	}
-	
-	//sans le signe , longueur min 4 (pour 0.0f)
-	else if (s.length() < 4)
-		return false;
-		
-	if (!(s[i] >= '0' && s[i] <= '9'))	//premier char est un nb
-		return false;
 
-	while(i < s.length() && s[i] != '.')				//on avance jusqu'au .
-	{
-		if (!(s[i] >= '0' && s[i] <= '9'))
-			return false;
-		i++;
-	}
-	if (i >= s.length() || s[i] != '.')				//si il n'y a pas de .
-		return false;
-		
-	i++;	//on saute le point
-	
-	//si il y a au moins 1 nb apres le .
-	if (i >= s.length() || !(s[i] >= '0' && s[i] <= '9'))	
-		return false;
-
-	//on avance jusqu'a ce que ce soit des chiffres
-	while(i < s.length() && s[i] >= '0' && s[i] <= '9')
-		i++;
-	
-	if (i >= s.length() || s[i] != 'f')
-		return false;
-
-	if ((i + 1) != s.length())
-		return false;
-	return true; 
-	
-}
-
-//un . mais pas de f
-static bool is_double(std::string &s)
-{
-	size_t i = 0;
-	
-	//string vide
-	if (s.empty())
-		return false;	
-
-	//pour le signe
-	if(s[i] == '+' || s[i] == '-')
-	{
-		//avec le signe , longueur min de 4 char (pour +0.0)
-		if (s.length() < 4)	
-			return false;
-	
-		i++;
-	}
-	
-	//sans le signe , longueur min 3 (pour 0.0)
-	else if (s.length() < 3)
-		return false;
-		
-	if (!(s[i] >= '0' && s[i] <= '9'))	//premier char est un nb
-		return false;
-
-	while(i < s.length() && s[i] != '.')				//on avance jusqu'au .
-	{
-		if (!(s[i] >= '0' && s[i] <= '9'))
-			return false;
-		i++;
-	}
-	if (i >= s.length() || s[i] != '.')				//si il n'y a pas de .
-		return false;
-		
-	i++;	//on saute le point
-	
-	//si il y a au moins 1 nb apres le .
-	if (i >= s.length() || !(s[i] >= '0' && s[i] <= '9'))	
-		return false;
-
-	//on avance jusqu'a ce que ce soit des chiffres
-	while(i < s.length() && s[i] >= '0' && s[i] <= '9')
-		i++;
-	
-	if (i != s.length())
-		return false;
-
-	return true; 
-	
-}
-
-//que des chiffres et parfois un signe
-static bool is_int(std::string &s)
-{
-	size_t i = 0;
-
-	if (s.empty())
-		return false;
-	
-	if (s[i] == '+' || s[i] == '-')
-	{
-		if (s.length() == 1)
-			return false;		//--> pour ne pas avoir juste + ou -
-		i++;
-	}
-
-	//on avance tant que c'est des chiffres
-	while(i < s.length() && s[i] >= '0' && s[i] <= '9')
-		i++;
-	
-	if (i != s.length())
-		return false;
-	
-	return true;
-}
-
-static bool is_char(std::string &s)
-{
-	if (s.length() != 1)
-		return false;
-
-	if (s[0] >= '0' && s[0] <= '9')
-		return false;
-	
-	return true;
-}
-
-
-static void ScalarConverter::convert(std::string& s)
+void ScalarConverter::convert(std::string s)
 {
 	//gere les cas speciaux avant (pseudo-literals)
 
-	if (s == "nan" || s == "nanf")
-	{
-		std::cout << "char : impossible" << std::endl
-			<< "int : impossible" << std::endl
-			<< "float : nanf" << std::endl
-			<< "double : nan" << std::endl;
-	}
-
-	else if (s == "+inf" || s == "+inff")
-	{
-		std::cout << "char : impossible" << std::endl
-			<< "int : impossible" << std::endl
-			<< "float : +inff" << std::endl
-			<< "double : +inf" << std::endl;
-	}
-
-	else if (s == "inf" || s == "inff")
-	{
-		std::cout << "char : impossible" << std::endl
-			<< "int : impossible" << std::endl
-			<< "float : inff" << std::endl
-			<< "double : inf" << std::endl;
-	}
-
-	else if (s == "-inf" || s == "-inff")
-	{
-		std::cout << "char : impossible" << std::endl
-			<< "int : impossible" << std::endl
-			<< "float : -inff" << std::endl
-			<< "double : -inf" << std::endl;
-	}
+	if (pseudo_literal(s) == true)
+		return;
 
 
 	//detecter le type
@@ -252,34 +81,64 @@ static void ScalarConverter::convert(std::string& s)
 	{
 		char c = s[0];
 		
-		std::cout << "char : '" << c << "'" << std::endl
-			<< "int : " << static_cast<int>(s) << std::endl
-			<< "float : " << static_cast<float>(s) << std::endl
-			<< "double : " << static_cast<double>(s) << std::endl;
+		std::cout << "char: '" << c << "'" << std::endl
+			<< "int: " << static_cast<int>(c) << std::endl
+			<< "float: " << std::fixed << std::setprecision(1) << static_cast<float>(c) << "f" << std::endl
+			<< "double: " << std::fixed << std::setprecision(1) << static_cast<double>(c) << std::endl;
 	}
 
 		//c'est un float
 	
 	else if (is_float(s) == true)
 	{
-		float f = std::atof(s.c_str());
+		double d = std::atof(s.c_str());		//atof converti un char en double, il faut ensuite le cast en float
 
-		std::cout << "char : " << static_cast<char>(f) << std::endl
-			<< "int : " << static_cast<int>(f) << std::endl
-			<< "float : " << f << std::endl
-			<< "double : " << static_cast<double>(f) << std::endl;
+		float f = static_cast<float>(d);
+
+		if (f < 0 || f > 127 || f != static_cast<int>(f))
+			std::cout << "char: impossible" << std::endl;
+		else if (!isprint(static_cast<char>(f)))
+			std::cout << "char: Non displayable" << std::endl;
+		else
+			std::cout << "char: '" << static_cast<char>(f) << "'" << std::endl;
+
+		if (f > static_cast<float>(INT_MAX) || f < static_cast<float>(INT_MIN))
+			std::cout <<  "int: impossible" << std::endl;
+		else
+			std::cout << "int: " << static_cast<int>(f) << std::endl;
+	
+		
+		std::cout << "float: " << std::fixed << std::setprecision(1) 
+			<< f << "f" << std::endl;
+
+		std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(f) << std::endl;
 	}
 
 		//c'est un double ( un . sans 'f')
 
 	else if (is_double(s) == true)
 	{
-		double d = atof(s.c_str());
+		double d = std::atof(s.c_str());
 
-		std::cout << "char : " << static_cast<char>(d) << std::endl
-			<< "int : " << static_cast<int>(d) << std::endl
-			<< "float : " << static_cast<int>(d) << std::endl
-			<< "double : " << d << std::endl;
+		if (d < 0 || d > 127 || d != static_cast<int>(d))
+			std::cout << "char: impossible" << std::endl;
+		else if (!isprint(static_cast<char>(d)))
+			std::cout << "char: Non displayable" << std::endl;
+		else
+			std::cout << "char: '" << static_cast<char>(d) << "'" << std::endl;
+
+		if (d > INT_MAX || d < INT_MIN)
+			std::cout <<  "int: impossible" << std::endl;
+		else
+			std::cout << "int: " << static_cast<int>(d) << std::endl;
+	
+		
+		std::cout << "float: " << std::fixed << std::setprecision(1) 
+			<< static_cast<float>(d) << "f" << std::endl;
+
+		std::cout << "double: " << std::fixed << std::setprecision(1) << d << std::endl;
+
+
 	}
 
 		//c'est un int
@@ -303,13 +162,17 @@ static void ScalarConverter::convert(std::string& s)
 		if (i < 0 || i > 127)
 			std::cout << "char: impossible" << std::endl;
 		else if (!isprint(static_cast<char>(i)))
-			std::cout << "char: not printable" << std::endl;
+			std::cout << "char: Non displayable" << std::endl;
 		else
 			std::cout << "char: '" << static_cast<char>(i) << "'" << std::endl;
 
 		std::cout << "int: " << i << std::endl
 			<< "float: " << std::fixed << std::setprecision(1) << static_cast<float>(i) << "f" << std::endl
 			<< "double: " << std::fixed << std::setprecision(1) << static_cast<double>(i) << std::endl;
+	}
+	else
+	{
+		std::cerr << "You must write either a char (ex: a), an int (ex: 42), a double (ex: 42.0), or a float (ex: 42.0f) as a parameter." << std::endl;
 	}
 	 
 }

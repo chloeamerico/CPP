@@ -1,4 +1,4 @@
-NAME = Intern
+NAME = Convert
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -I.
@@ -7,13 +7,10 @@ OBJ_DIR = obj
 INC_DIR = includes
 
 
-SRCS = $(SRC_DIR)/Bureaucrat.cpp \
-	   $(SRC_DIR)/AForm.cpp \
+SRCS = $(SRC_DIR)/detect_type.cpp \
 	   $(SRC_DIR)/main.cpp \
-	   $(SRC_DIR)/Intern.cpp \
-	   $(SRC_DIR)/PresidentialPardonForm.cpp \
-	   $(SRC_DIR)/RobotomyRequestForm.cpp \
-	   $(SRC_DIR)/ShrubberyCreationForm.cpp \
+	   $(SRC_DIR)/pseudo_literal.cpp \
+	   $(SRC_DIR)/ScalarConverter.cpp \
 
 OBJS = $(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 
