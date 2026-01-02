@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 20:02:06 by camerico          #+#    #+#             */
-/*   Updated: 2025/12/30 20:04:59 by camerico         ###   ########.fr       */
+/*   Updated: 2026/01/02 16:40:00 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 
 #include "Base.hpp"
 
-class A : public Base {}
+class A : public Base {} ;
 
 #endif

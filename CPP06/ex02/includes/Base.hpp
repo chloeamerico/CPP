@@ -6,12 +6,17 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 20:00:59 by camerico          #+#    #+#             */
-/*   Updated: 2025/12/30 20:08:43 by camerico         ###   ########.fr       */
+/*   Updated: 2026/01/02 16:43:30 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BASE_HPP
 #define BASE_HPP
+
+#include <cstdlib>  // Pour rand()
+#include <ctime>    // Pour time()
+#include <iostream>
+#include <typeinfo>	//pour l'exception std::bad_cast
 
 class Base {
 	
