@@ -6,11 +6,26 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 19:26:36 by camerico          #+#    #+#             */
-/*   Updated: 2025/12/30 19:46:17 by camerico         ###   ########.fr       */
+/*   Updated: 2026/01/02 19:35:56 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./../includes/Serializer.hpp"
+
+Serializer::Serializer() {}
+
+Serializer::Serializer(const Serializer& copy)
+{
+	*this = copy;
+}
+Serializer& Serializer::operator=(const Serializer& copy)
+{
+	if (this != &copy)
+		*this = other;
+	return *this;
+}
+
+~Serializer() {}
 
 /* reinterpret_cast :
 	- adapté pour les conversions de bas niveau entre pointeurs et entiers
