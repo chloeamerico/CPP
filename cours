@@ -578,4 +578,118 @@ ouvre cette porte et continue à avancer jusqu'à ce qu'il rencontre un break.
 // LE fall-through
 
 Si tu n'écris pas de break, le code continue d'exécuter les case suivants automatiquement. 
-C'est exactement ce que tu veux pour l'ex06 !
+C'est exactement ce que tu veux pour l''ex06 !
+
+/********toutes les fonctions qui existent dans algoritme ***********/
+
+Algorithmes de recherche (Non-modifying)
+    
+    Recherche d'éléments
+        
+        - find : trouve la première occurrence d'une valeur
+        - find_if : trouve le premier élément satisfaisant une condition
+        - find_end : trouve la dernière occurrence d'une sous-séquence
+        - find_first_of : cherche un élément parmi un ensemble
+        - adjacent_find : trouve deux éléments adjacents égaux
+        - search : cherche une sous-séquence
+        - search_n : cherche n occurrences consécutives
+
+    Comptage et vérification
+
+        - count : compte les occurrences d'une valeur
+        - count_if : compte les éléments satisfaisant une condition
+        - mismatch : trouve la première différence entre deux séquences
+        - equal : vérifie si deux séquences sont égales
+
+    Parcours
+    
+        - for_each : applique une fonction à chaque élément
+
+
+Algorithmes de tri (Sorting)
+
+        - sort : trie les éléments
+        - stable_sort : trie en préservant l''ordre relatif
+        - partial_sort : trie partiellement
+        - nth_element : place le n-ième élément à sa position triée
+
+Recherche binaire (sur séquences triées)
+
+        - binary_search : vérifie si un élément existe
+        - lower_bound : trouve le premier élément ≥ valeur
+        - upper_bound : trouve le premier élément > valeur
+        - equal_range : trouve la plage d'éléments égaux
+
+
+Algorithmes de modification (Modifying)
+
+    Copie et déplacement
+
+        - copy : copie des éléments
+        - copy_backward : copie en arrière
+        - swap : échange deux valeurs
+        - swap_ranges : échange deux plages
+        - iter_swap : échange via itérateurs
+
+    Transformation
+
+        - transform : applique une fonction et stocke le résultat
+        - replace : remplace une valeur par une autre
+        - replace_if : remplace selon une condition
+        - replace_copy : copie en remplaçant
+        - replace_copy_if : copie en remplaçant selon condition
+
+    Remplissage et génération
+
+        - fill : remplit avec une valeur
+        - fill_n : remplit n éléments
+        - generate : génère des valeurs avec une fonction
+        - generate_n : génère n valeurs
+
+    Suppression
+
+        - remove : "supprime" des éléments (déplace à la fin)
+        - remove_if : supprime selon condition
+        - remove_copy : copie en supprimant
+        - remove_copy_if : copie en supprimant selon condition
+        - unique : supprime les doublons consécutifs
+        - unique_copy : copie en supprimant doublons
+
+    Réorganisation
+    
+        - reverse : inverse l''ordre
+        - reverse_copy : copie en inversant
+        - rotate : fait une rotation
+        - rotate_copy : copie en faisant rotation
+        - random_shuffle : mélange aléatoirement (C++98)
+
+
+
+Algorithmes Min/Max
+
+        - min : retourne le minimum
+        - max : retourne le maximum
+        - min_element : trouve l'élément minimum
+        - max_element : trouve l'élément maximum
+
+
+Algorithmes sur ensembles (séquences triées)
+
+        - merge : fusionne deux séquences triées
+        - inplace_merge : fusionne sur place
+        - includes : vérifie si une séquence contient une autre
+        - set_union : union d'ensembles
+        - set_intersection : intersection
+        - set_difference : différence
+        - set_symmetric_difference : différence symétrique
+
+
+Algorithmes de permutation
+
+        - next_permutation : génère la permutation suivante
+        - prev_permutation : génère la permutation précédente
+        - Algorithmes de tas (Heap)
+        - make_heap : crée un tas
+        - push_heap : ajoute au tas
+        - pop_heap : retire du tas
+        - sort_heap : trie un tas
