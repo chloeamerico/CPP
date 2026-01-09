@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 16:53:07 by camerico          #+#    #+#             */
-/*   Updated: 2026/01/08 21:12:58 by camerico         ###   ########.fr       */
+/*   Updated: 2026/01/09 19:34:53 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 #include <exception>
 #include <vector>
 #include <algorithm>
+#include <iostream>
+#include <climits>
+#include <cstdlib> //pour la fonction rand()
 
 class Span
 {
@@ -38,8 +41,10 @@ class Span
 		//public methods
 
 		void addNumber(int nb);		//ajoute une nouvelle variable au vector, faire attention a ne pas depasser N, exception sinon
+		void addNumbers(std::vector<int>::iterator start, std::vector<int>::iterator end);
 		unsigned int shortestSpan() const;
 		unsigned int longestSpan() const;
+		
 
 		class NotEnoughNumberException : public std::exception		//si il y a 0 ou 1 element dans _numbers et qu'on veit trouver shortest ou longest
 		{
@@ -52,6 +57,7 @@ class Span
 			public:
 				virtual const char* what() const throw() ; 
 		};
+
 };
 
 #endif
