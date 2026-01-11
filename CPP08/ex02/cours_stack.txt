@@ -1,0 +1,64 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    cours_stack.txt                                    :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: camerico <camerico@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2026/01/11 15:04:33 by camerico          #+#    #+#              #
+#    Updated: 2026/01/11 15:06:43 by camerico         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+*************************************
+*			STD::STACK				*
+*************************************
+
+std::stack est un adaptateur de conteneur (container adapter), --> pas un vrai conteneur
+c'est une interface qui encapsule un autre conteneur existant.
+
+
+# Le conteneur sous-jacent :
+
+std::stack utilise en interne un autre conteneur pour stocker réellement les données. LIFO
+
+*Par default* : deque, mais on peut preciser std::vector ou std::list
+
+
+*ex: du code *
+
+`template <class T, class Container = std::deque<T>>`
+`class stack {`
+`protected:`
+`    Container c;  // Le conteneur sous-jacent`
+   
+`public:`
+`    void push(const T& value) { c.push_back(value); }`
+`    void pop() { c.pop_back(); }`
+`    T& top() { return c.back(); }`
+`    size_t size() const { return c.size(); }`
+`    bool empty() const { return c.empty(); }`
+`};`
+
+Les méthodes de std::stack redirigent simplement vers le conteneur sous-jacent:
+​
+	- push() → c.push_back()
+	- pop() → c.pop_back()
+	- top() → c.back()
+	- size() → c.size()
+	- empty() → c.empty()
+
+
+explication de :     typedef typename std::stack<T>::container_type::iterator iterator;
+
+- typedef typename : pour dire que ca sera un type et pas une valuer ou fonction
+
+- std::stack<T> : C'est la classe template std::stack instanciée avec le type T. 
+				Si ta MutantStack est MutantStack<int>, alors T = int et std::stack<T> devient std::stack<int>.
+
+- ::container_type : container_type est un type membre public défini dans std::stack.
+					Donc std::stack<int>::container_type = std::deque<int> (par défaut)
+
+- ::iterator : iterator est un type membre défini dans le conteneur sous-jacent (comme std::deque). 
+				Tous les conteneurs STL définissent leur propre type iterator
+
