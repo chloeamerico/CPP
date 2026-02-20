@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 16:31:29 by camerico          #+#    #+#             */
-/*   Updated: 2026/01/07 19:08:56 by camerico         ###   ########.fr       */
+/*   Updated: 2026/01/11 17:58:12 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define EASYFIND_HPP
 
 #include <algorithm>	//pour std::find
+#include <exception>
 
 class NotFoundException : public std::exception
 {
