@@ -39,6 +39,8 @@ text
 séquence principale (triée) : [8 45 47 65 74 88 366]
 pending                      : [21 20 1 12 98 9]
 
+
+
 À partir de là, toutes les insertions de pending se font dans cette liste triée.
 3) Exemple concret : insertion dans la liste de grands
 3.1. Ordre d’insertion (indices de pending)
@@ -52,7 +54,6 @@ indices : [0 1 2 3 4 5]
 L’ordre Jacobsthal construit :
 [0, 2, 1, 4, 3, 5]
 
-​
 
 Donc on insère, dans cet ordre :
 
@@ -60,23 +61,20 @@ Donc on insère, dans cet ordre :
 
     pending = 1
 
-​
 
 pending = 20
 
-​
 
 pending = 98
 
-​
+
 
 pending = 12
 
-​
 
 pending = 9
 
-    ​
+
 
 Toujours dans la liste triée courante.
 3.2. Où on insère 21 exactement ?
@@ -137,3 +135,40 @@ pairs.push_back(std::make_pair(98, 366));
 std::cout << pairs[0].first;   // 8
 std::cout << pairs[0].second;  // 45
 std::cout << pairs[1].first;   // 20
+
+
+
+/*********************** */
+
+jacobsthalSequence = [1, 3, 5, 11, 21, ...]
+
+donc le n0 1 sera l'index 0; puis le n0 3 sera l'index 2 , puis on insere l''index 1
+
+
+
+Étape 1 : Générer la suite de Jacobsthal
+
+text
+Tant que dernier Jacobsthal < pending_size :
+    calculer le suivant
+
+Pour pending_size = 6 :
+J = [1, 3, 5]   (11 > 6, stop)
+
+Étape 2 : Créer les bornes
+
+text
+Bornes = [0] + Jacobsthal + [pending_size]
+       = [0, 1, 3, 5, 6]
+
+Étape 3 : Remplir l'ordre (décroissant dans chaque intervalle)
+
+text
+Pour chaque paire de bornes (debut, fin) :
+    de fin-1 jusqu'à debut :
+        ajouter l'indice
+
+(0, 1) → 0        → [0]
+(1, 3) → 2, 1     → [0, 2, 1]
+(3, 5) → 4, 3     → [0, 2, 1, 4, 3]
+(5, 6) → 5        → [0, 2, 1, 4, 3, 5]
