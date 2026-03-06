@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 16:09:10 by camerico          #+#    #+#             */
-/*   Updated: 2026/03/02 18:52:40 by camerico         ###   ########.fr       */
+/*   Updated: 2026/03/06 18:59:49 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -185,11 +185,31 @@ void PmergeMe::divide_low_pending_vec()
 //suite de Jacobsthal
 void PmergeMe::insert_vec()
 {
-	std::vector<size_t> insert_order = jacob_order(_pending_vec.size());
+	std::vector<size_t> insert_order = instert_order(_pending_vec.size());
 	
 }
 
-std::vector<size_t> PmergeMe::jacob_order(size_t pending_size)
+//generer l'ordre dans lequel on va inserer les nb en se basant sur la suite de jacobsthal
+std::vector<size_t> PmergeMe::insert_order(size_t pending_size)
 {
-	
+	std::vector<size_t> order
+}
+
+//pour generer la suite de JS
+std::vector<size_t> PmergeMe::jacob_suite(size_t pending_size)
+{
+	std::vector<size_t> js;
+
+	js.push_back(1);
+
+	if (pending_size > 1)
+		js.push_back(3);
+
+	while (js.back() < pending_size)
+	{
+		size_t next;
+		next = js.back() + 2 * js[js.size() - 2];		//J(n) = J(n-1) + 2 * J(n-2)  ==> dernier + 2 * avant-dernier
+		js.push_back(next);
+	}
+	return js;
 }

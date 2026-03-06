@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 15:55:30 by camerico          #+#    #+#             */
-/*   Updated: 2026/03/02 18:51:22 by camerico         ###   ########.fr       */
+/*   Updated: 2026/03/06 18:20:39 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ class PmergeMe
 		void sort_high_vec();
 		void divide_low_pending_vec();
 		void insert_vec();
-		std::vector<size_t> jacob_order(size_t pending_size);
+		std::vector<size_t> insert_order(size_t pending_size);
 		
 
 		//deq
@@ -60,7 +60,7 @@ class PmergeMe
 		void sort_high_deq();
 		void divide_low_pending_deq();
 		void insert_deq();
-		std::vector<size_t> jacob_order(size_t pending_size);
+		std::vector<size_t> insert_order(size_t pending_size);
 
 
 	public :
