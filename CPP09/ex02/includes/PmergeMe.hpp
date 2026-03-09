@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 15:55:30 by camerico          #+#    #+#             */
-/*   Updated: 2026/03/06 18:20:39 by camerico         ###   ########.fr       */
+/*   Updated: 2026/03/09 17:58:01 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@
 #include <limits.h>
 #include <utility> 		//pour std::pair et std::make_pair
 #include <cstdlib>		//pour atoi et atol
+#include <algorithm>
+#include <ctime>
+#include <iomanip>
 
 class PmergeMe
 {
@@ -46,21 +49,22 @@ class PmergeMe
 		
 		bool is_valid_num(const std::string &s);
 		void ParseArg(int argc, char **argv);
+		void print_all(clock_t start_vec, clock_t end_vec);
 		
 		//vec
 		void make_pairs_vec();
 		void sort_high_vec();
 		void divide_low_pending_vec();
 		void insert_vec();
-		std::vector<size_t> insert_order(size_t pending_size);
-		
+		std::vector<size_t> insert_order_vec(size_t pending_size);
+		std::vector<size_t> jacob_suite_vec(size_t pending_size);		
 
-		//deq
-		void make_pairs_deq();
-		void sort_high_deq();
-		void divide_low_pending_deq();
-		void insert_deq();
-		std::vector<size_t> insert_order(size_t pending_size);
+		// //deq
+		// void make_pairs_deq();
+		// void sort_high_deq();
+		// void divide_low_pending_deq();
+		// void insert_deq();
+		// std::vector<size_t> insert_order(size_t pending_size);
 
 
 	public :
