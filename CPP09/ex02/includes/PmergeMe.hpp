@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 15:55:30 by camerico          #+#    #+#             */
-/*   Updated: 2026/03/09 17:58:01 by camerico         ###   ########.fr       */
+/*   Updated: 2026/03/09 18:01:38 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ class PmergeMe
 		
 		bool is_valid_num(const std::string &s);
 		void ParseArg(int argc, char **argv);
-		void print_all(clock_t start_vec, clock_t end_vec);
+		void print_all(clock_t start_vec, clock_t end_vec, clock_t start_deq, clock_t end_deq);
 		
 		//vec
 		void make_pairs_vec();
@@ -59,12 +59,13 @@ class PmergeMe
 		std::vector<size_t> insert_order_vec(size_t pending_size);
 		std::vector<size_t> jacob_suite_vec(size_t pending_size);		
 
-		// //deq
-		// void make_pairs_deq();
-		// void sort_high_deq();
-		// void divide_low_pending_deq();
-		// void insert_deq();
-		// std::vector<size_t> insert_order(size_t pending_size);
+		//deq
+		void make_pairs_deq();
+		void sort_high_deq();
+		void divide_low_pending_deq();
+		void insert_deq();
+		std::deque<size_t> insert_order_deq(size_t pending_size);
+		std::deque<size_t> jacob_suite_deq(size_t pending_size);	
 
 
 	public :

@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 16:09:10 by camerico          #+#    #+#             */
-/*   Updated: 2026/03/09 17:58:08 by camerico         ###   ########.fr       */
+/*   Updated: 2026/03/09 18:08:58 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,14 @@ void PmergeMe::run(int argc, char **argv)
 	insert_vec();
 	clock_t end_vec = clock();
 	
-	// clock_t start_deq = clock();
-	// clock_t end_deq = clock();
+	clock_t start_deq = clock();
+	make_pairs_deq();
+	sort_high_deq();
+	divide_low_pending_deq();
+	insert_deq();
+	clock_t end_deq = clock();
 	
-	print_all(start_vec, end_vec);
+	print_all(start_vec, end_vec, start_deq, end_deq);
 	
 	
 }
@@ -93,7 +97,9 @@ bool PmergeMe::is_valid_num(const std::string &s)
 }
 
 
-//fonctions pour vec
+/********************************************
+ * 			fonctions pour vec				*
+ * *****************************************/
 
 //donne des paires triees a l'interieur ou le 1er <= 2eme
 void PmergeMe::make_pairs_vec()
@@ -267,7 +273,148 @@ std::vector<size_t> PmergeMe::jacob_suite_vec(size_t pending_size)
 	return js;
 }
 
-void PmergeMe::print_all(clock_t start_vec, clock_t end_vec)
+
+/********************************************
+ * 			fonctions pour deq				*
+ * *****************************************/
+
+
+//donne des paires triees a l'interieur ou le 1er <= 2eme
+void PmergeMe::make_pairs_deq()
+{
+	for (size_t i = 0; i + 1 < _deq.size(); i += 2)
+	{
+		int a = _deq[i];
+		int b = _deq[i + 1];
+		
+		if (a <= b)
+			_pairs_deq.push_back(std::make_pair(a, b));
+		else
+			_pairs_deq.push_back(std::make_pair(b, a));
+	}
+	if(_deq.size() % 2 != 0)
+	{
+		is_paire = false;
+		pending = _deq.back();		//renvoie le dernier num du container
+	}
+	else
+		is_paire = true;
+}
+
+
+//tri les paires en fonction du plus grand
+void PmergeMe::sort_high_deq()
+{
+	std::sort(_pairs_deq.begin(), _pairs_deq.end(), compare_pairs);
+}
+
+void PmergeMe::divide_low_pending_deq()
+{
+	for (size_t i = 0; i < _pairs_deq.size(); i++)		//on rempli avec equivalence low<==> high
+	{
+		_low_deq.push_back(_pairs_deq[i].first);
+		_high_deq.push_back(_pairs_deq[i].second);
+	}
+
+	_finaldeq.push_back(_low_deq[0]);
+	
+	for(size_t i = 0; i < _low_deq.size(); i++)
+	{
+		_finaldeq.push_back(_high_deq[i]);
+		
+		if (i > 0)
+			_pending_deq.push_back(_low_deq[i]);
+	}
+	if (is_paire == false)
+		_pending_deq.push_back(pending);
+}
+
+//decider de ou placer ce nouveau nb
+void PmergeMe::insert_deq()
+{
+	std::deque<size_t> order = insert_order_deq(_pending_deq.size());
+	
+	for (size_t i = 0; i < order.size(); i++)	
+	{
+		int index = _pending_deq[order[i]];
+		std::deque<int>::iterator beg = _finaldeq.begin();		//le plus bas possible
+		std::deque<int>::iterator end;
+		
+		if (order[i] + 1 < _high_deq.size())	//ca si c'est un nb qui a un high associe
+		{
+			end = std::find(_finaldeq.begin(), _finaldeq.end(), _high_deq[order[i] + 1]);		//le high associe a ce pending
+			end++;
+		}
+		else 
+			end = _finaldeq.end();
+
+		
+		while(beg < end)	//binary search entre le beg et le end
+		{
+			std::deque<int>::iterator mid = beg + (end - beg) / 2;
+			if (index > *mid)
+				beg = mid + 1;
+			else
+				end = mid;
+		}
+		
+		_finaldeq.insert(beg, index);
+	}
+}
+
+//generer l'ordre dans lequel on va inserer les nb en se basant sur la suite de jacobsthal
+std::deque<size_t> PmergeMe::insert_order_deq(size_t pending_size)
+{
+	std::deque<size_t> final_order; ;
+	std::deque<size_t> js = jacob_suite_deq(pending_size);
+	std::deque<size_t> bornes;
+	
+	bornes.push_back(0);		//on defini les bornes ([0], [js suite], [pending size]);
+	for (size_t i = 0; i < js.size(); i++)
+	{
+		bornes.push_back(js[i]);
+	}
+	bornes.push_back(pending_size);		//ordre defini
+
+	//on rempli entre les bornes;
+
+	for (size_t i = 1; i < bornes.size(); i++)
+	{
+		size_t j = bornes[i];
+		while(j > bornes[i - 1])
+		{
+			j--;
+			if(j < pending_size)
+				final_order.push_back(j);
+		}
+	}
+	return (final_order);
+}
+
+//pour generer la suite de JS
+std::deque<size_t> PmergeMe::jacob_suite_deq(size_t pending_size)
+{
+	std::deque<size_t> js;
+
+	js.push_back(1);
+
+	if (pending_size > 1)
+		js.push_back(3);
+
+	while (js.back() < pending_size)
+	{
+		size_t next;
+		next = js.back() + 2 * js[js.size() - 2];		//J(n) = J(n-1) + 2 * J(n-2)  ==> dernier + 2 * avant-dernier
+		js.push_back(next);
+	}
+	return js;
+}
+
+
+
+
+//commun aux deux
+void PmergeMe::print_all(clock_t start_vec, clock_t end_vec, clock_t start_deq, clock_t end_deq)
 {
 	std::cout << "Before: ";
 	for (size_t i = 0; i < _finalvec.size(); i++)
@@ -281,4 +428,7 @@ void PmergeMe::print_all(clock_t start_vec, clock_t end_vec)
 
 	double time_vec = static_cast<double>(end_vec - start_vec) / CLOCKS_PER_SEC * 1000000;
 	std::cout << "Time to process a range of " << _vec.size() << " elements with std::vector : "  << std::fixed << std::setprecision(5) << time_vec << " us" << std::endl;
+
+	double time_deq = static_cast<double>(end_deq - start_deq) / CLOCKS_PER_SEC * 1000000;
+	std::cout << "Time to process a range of " << _deq.size() << " elements with std::deque : "  << std::fixed << std::setprecision(5) << time_deq << " us" << std::endl;
 }

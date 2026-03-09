@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 18:42:44 by camerico          #+#    #+#             */
-/*   Updated: 2026/02/20 17:51:00 by camerico         ###   ########.fr       */
+/*   Updated: 2026/03/09 18:33:52 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,12 @@
 #include <sstream> 
 #include <cctype>
 #include <stdexcept> //pour lqmcer l'exception
+#include <list>
 
 class RPN
 {
 	private :
-		std::stack<double> _pile;
+		std::stack<double, std::list<double> > _pile;
 	
 	public :
 	
